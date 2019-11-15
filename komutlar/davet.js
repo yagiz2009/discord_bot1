@@ -21,7 +21,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'davet',
+  name: 'bizkimiz',
   description: 'bot hakkında bilgi',
   usage: 'davetet'
 };
