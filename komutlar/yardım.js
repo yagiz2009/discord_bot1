@@ -25,7 +25,7 @@ exports.conf = {
   };
   
   exports.help = {
-    name: 'yardım',
+    name: 'yardımv2',
     description: 'yardım',
     usage: 'yardım'
   };

@@ -6,15 +6,16 @@ const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
 .setTitle('» Komut Grupları')
 .setTimestamp()
-.addField('» Moderasyon Komutları :hammer:', '!botkontrol !kick !rol-liste !oylama !reboot !temizle !ses-kanal-aç !yaz')
-.addField('» Eğlence Komutları :beginner:', '!rip - !kralol !1vs1 !kaç-cm !kralol !rip !wasted !yazi-tura !doğrulukcesaret')
-.addField('» Genel Komutlar', '!ailemiz !spoiler ')
-.addField('» Ekstra Komutlar', '!çeviri !havadurumu !mc-ödül !rastgeleşifre')
-.addField('» Bot Komutları', '!bizkimiz !davetolustur !emojiyükle !ping')
-.addField('» Kullanıcı Komutları', '!sikayet !kullanıcı-bilgi @user !')
-.addField('» Sunucu Komutları', '!istatistik !icon !alıntıla !hastebin !reklam-taraması !sunucunutanıt')
-.addField('» Nsfw Komutları', '!nsfw')
-.setFooter('© 2018 Fredux', client.user.avatarURL)
+.addField('» ⚔️ Moderasyon Komutları :hammer:', '!botkontrol !kick !rol-liste !oylama !reboot !temizle !ses-kanal-aç !yaz')
+.addField('» ⚙️Eğlence Komutları :beginner:', '!rip - !kralol !1vs1 !kaç-cm !kralol !rip !wasted !yazi-tura !doğrulukcesaret')
+.addField('» ⚙️Genel Komutlar ⚡️', '!ailemiz !spoiler ')
+.addField('» ⚙️Ekstra Komutlar 💥', '!çeviri !havadurumu !mc-ödül !rastgeleşifre')
+.addField('» ⚙️Bot Komutları ❄️', '!bizkimiz !davetolustur !emojiyükle !ping')
+.addField('» ⚙️Kullanıcı Komutları 🔥', '!sikayet !kullanıcı-bilgi @user !')
+.addField('» ⚙️Sunucu Komutları ⭐️', '!istatistik !icon !alıntıla !hastebin !reklam-taraması !sunucunutanıt')
+.addField('» ⚙️Nsfw Komutları 🔞', '!nsfw')
+.addField('» ⚙️Diğer Komutlar 💣', '!beşiktaş !fenerbahçe !galatasaray !spotify !youtube')
+.setFooter('Zaman çok hızlı geçiyor be knki', client.user.avatarURL)
 .setTimestamp()
 .setThumbnail(client.user.avatarURL)
 message.channel.send(embed)
@@ -28,7 +29,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'yardım-listesi',
+  name: 'yardım',
   description: 'Tüm komutları gösterir.',
   usage: 'yardım'
 };
