@@ -11,7 +11,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['say', 'söyle'],
-  permLevel: 0
+  permLevel: 3
 };
 
 exports.help = {
