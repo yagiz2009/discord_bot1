@@ -19,6 +19,6 @@ exports.conf = {
   
   exports.help = {
     name: 'saat',
-    description: 'saat',
+    description: 'saat türkiye',
     usage: 'saat'
   };
