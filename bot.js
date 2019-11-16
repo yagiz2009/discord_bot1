@@ -115,3 +115,45 @@ client.on('message', msg => {
     msg.reply('Js Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
   } 
 });
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!kırmızı') {  // Renk İsmi
+       msg.member.addRole("645265708707479552") //Rolün İdsi
+    msg.reply('**Kırmızı** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!turuncu') {  // Renk İsmi
+       msg.member.addRole("645265872839114772") //Rolün İdsi
+    msg.reply('**Turuncu** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!sarı') {  // Renk İsmi
+       msg.member.addRole("645266056595767358") //Rolün İdsi
+    msg.reply('**Sarı** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!yeşil') {  // Renk İsmi
+       msg.member.addRole("645266165245149184") //Rolün İdsi
+    msg.reply('**Yeşil** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!mavi') {  // Renk İsmi
+       msg.member.addRole("645266287802580993") //Rolün İdsi
+    msg.reply('**Mavi** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!mor') {  // Renk İsmi
+       msg.member.addRole("645266367473254412") //Rolün İdsi
+    msg.reply('**Mavi** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
