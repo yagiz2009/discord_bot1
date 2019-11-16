@@ -21,7 +21,7 @@ const Discord = require('discord.js');
        .setColor("RED")
        .setThumbnail(client.user.avatarURL)
        .setTimestamp()
-       .setFooter('MG Blocker`s Oylama Sistemi', client.user.avatarURL)
+       .setFooter('Oylama Sistemi', client.user.avatarURL)
 
        .addField(`**Oylama**`, `**${question}**`)).then(function(message) {
 
