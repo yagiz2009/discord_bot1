@@ -110,9 +110,9 @@ client.on('error', e => {
 client.login(ayarlar.token);
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'js') {  // !js Örnek
+  if (msg.content.toLowerCase() === '!js') {  // !js Örnek
        msg.member.addRole("645241430591406082") //Javascript İdi 
-    msg.reply('Js Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
+    msg.reply('**Js** Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
   } 
 });
 
@@ -162,5 +162,19 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === '!pembe') {  // Renk İsmi
        msg.member.addRole("645266456933695488") //Rolün İdsi
     msg.reply('**Pembe** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!html') {  // !js Örnek
+       msg.member.addRole("645245068290031645") //Javascript İdi 
+    msg.reply('**HTML** Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!python') {  // !js Örnek
+       msg.member.addRole("645245019049033769") //Javascript İdi 
+    msg.reply('**Python** Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
   } 
 });
