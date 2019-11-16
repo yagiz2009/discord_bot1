@@ -4,7 +4,7 @@ const ayarlar = require('../loglar.json');
 const prefix = ayarlar.prefix
 
 exports.run = async (client, message, args) => {
- if (!message.member.roles.has("616688709986680876")) return message.reply('Bu komutu kullanabilmek için -------- rolüne sahip olmalısın.');
+ if (!message.member.roles.has("645005522071977984")) return message.reply('Bu komutu kullanabilmek için -------- rolüne sahip olmalısın.');
   let isim = args.slice(1).join(' ');
   let tag = ""
   let kullanici = message.mentions.users.first();
