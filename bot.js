@@ -154,6 +154,13 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!mor') {  // Renk İsmi
        msg.member.addRole("645266367473254412") //Rolün İdsi
-    msg.reply('**Mavi** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+    msg.reply('**Mor** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
+  } 
+});
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === '!pembe') {  // Renk İsmi
+       msg.member.addRole("645266456933695488") //Rolün İdsi
+    msg.reply('**Pembe** Rolünü Başarıyla Aldın. :inbox_tray:'); // Renge Göre İsmini Editle
   } 
 });
