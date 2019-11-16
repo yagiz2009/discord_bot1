@@ -8,7 +8,7 @@ let kanal = message.channel.name;
 let channel = bot.channels.get("644993997814628412")//bug repot kanal id
 let embed = new Discord.RichEmbed()
 .setTitle("Bug Report")
-.setThumbnail("https://images-ext-1.discordapp.net/external/nQoe_5zRdR6A5gsh2fevRbNvhoc5A2YIWP7zVdN5_NE/%3Fv%3D1/https/cdn.discordapp.com/emojis/435908220100280320.png?width=80&height=80")
+.setThumbnail("https://cdn.discordapp.com/attachments/545569894268272650/645252657572872192/tosun.png?width=80&height=80")
 .addField("Bug", bug)
 .addField("Report Eden", user, true)
 .addField("Sunucu", guild, true)
