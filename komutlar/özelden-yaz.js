@@ -1,9 +1,7 @@
-
-Save New Duplicate & Edit Just Text
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-  if (message.author.id != "463419656661762048") return message.reply('Bunu Sadece Sahibim Kullanabilir');
-      
+  if (message.author.id != "521315934825349121") return message.reply('Bunu Sadece Sahibim Kullanabilir');
+  
   if (!message.guild) {
   const ozelmesajuyari = new Discord.RichEmbed()
   .setColor(0xFF0000)
@@ -35,6 +33,6 @@ exports.conf = {
 
 exports.help = {
   name: 'mesajat',
-  description: 'Bir k mesaj yollar.',
+  description: 'Bir üyeye özel mesaj yollar.',
   usage: 'mesajat'
 };
