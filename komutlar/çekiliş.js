@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
   .setColor("ff0000")
   .setTitle(`${message.guild.name} - Çekiliş`)
   .setDescription(`**\n:x: !çekiliş #kanal süre ödül ** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-  .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
+  .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
       .setTimestamp()
 
   .setFooter(`${message.author.username}`, message.author.avatarURL);
@@ -37,9 +37,9 @@ exports.run = async (client, message, args) => {
   {
     var giveEmbed1 = new Discord.RichEmbed()
     .setColor("ff0000")
-    .setTitle(`${message.guild.name} - Çekiliş Sistemi `)
+    .setTitle(`${message.guild.name} - Çekiliş Zamanı `)
     .setDescription(`**\n:x: Bir süre yazmalısın !** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-    .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
+    .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
         .setTimestamp()
 
     .setFooter(`${message.author.username}`, message.author.avatarURL);
@@ -54,7 +54,7 @@ exports.run = async (client, message, args) => {
     .setColor("ff0000")
     .setTitle(`${message.guild.name} - Çekiliş Sistemi `)
      .setDescription(`**\n:x: Süreyi doğru yazmalısın !** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-    .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
+    .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
         .setTimestamp()
 
     .setFooter(`${message.author.username}`, message.author.avatarURL);
@@ -68,7 +68,7 @@ exports.run = async (client, message, args) => {
     .setColor("ff0000")
     .setTitle(`${message.guild.name} - Çekiliş Sistemi `)
     .setDescription(`**\n:x: Ödülü yazmalısın.** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-    .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
+    .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
         .setTimestamp()
 
     .setFooter(`${message.author.username}`, message.author.avatarURL);
@@ -85,7 +85,7 @@ exports.run = async (client, message, args) => {
   .setColor("00deff")
   .setTitle(`${message.guild.name} - Çekiliş Sistemi  \n\nÇekiliş Hediyesi: ${title}`)
   .setDescription(`🎉 Çekiliş Bu Kanalda Açıklanacaktır.\n\n**Çekiliş Süresi :**\` ${duration} ${sure}\``)
-  .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
+  .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
   .setTimestamp()
   .setFooter(`Çekilişi Yapan Yetkili : ${message.author.username}`, message.author.avatarURL);
   room.send(giveEmbed).then(m => {
@@ -101,7 +101,7 @@ exports.run = async (client, message, args) => {
       .setColor("00deff")
       .setTitle(`${message.guild.name} - Çekiliş Sistemi  \n\nÇekiliş Hediyesi: ${title}`)
       .setDescription(`**Çekilişi Kazanan :** ${gFilter}`)
-      .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
+      .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
       .setFooter(`Çekilişi Yapan Yetkili : ${message.author.username}`, message.author.avatarURL)
       m.edit(endEmbed)
    }, ms(`${duration} ${bisi}`))
