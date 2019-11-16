@@ -20,7 +20,7 @@ exports.run = async (client, message, params, args) => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['komut', 'komutlar', 'command', 'yardım', 'help', 'halp', 'y', 'h', 'commands'],
+    aliases: ['komut', 'komutlar', 'command', 'yardım2', 'help', 'halp', 'y', 'h', 'commands'],
     permLevel: 0
   };
   
