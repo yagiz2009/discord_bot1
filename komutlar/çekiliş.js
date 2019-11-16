@@ -52,7 +52,7 @@ exports.run = async (client, message, args) => {
   {
     var giveEmbed1 = new Discord.RichEmbed()
     .setColor("ff0000")
-    .setTitle(`${message.guild.name} - Çekiliş Sistemi `)
+    .setTitle(`${message.guild.name} - Çekiliş`)
      .setDescription(`**\n:x: Süreyi doğru yazmalısın !** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
     .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
         .setTimestamp()
@@ -66,7 +66,7 @@ exports.run = async (client, message, args) => {
   {
     var giveEmbed1 = new Discord.RichEmbed()
     .setColor("ff0000")
-    .setTitle(`${message.guild.name} - Çekiliş Sistemi `)
+    .setTitle(`${message.guild.name} - Çekiliş`)
     .setDescription(`**\n:x: Ödülü yazmalısın.** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
     .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
         .setTimestamp()
@@ -83,7 +83,7 @@ exports.run = async (client, message, args) => {
   
   let giveEmbed = new Discord.RichEmbed()
   .setColor("00deff")
-  .setTitle(`${message.guild.name} - Çekiliş Sistemi  \n\nÇekiliş Hediyesi: ${title}`)
+  .setTitle(`${message.guild.name} - Çekiliş \n\nÇekiliş Hediyesi: ${title}`)
   .setDescription(`🎉 Çekiliş Bu Kanalda Açıklanacaktır.\n\n**Çekiliş Süresi :**\` ${duration} ${sure}\``)
   .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
   .setTimestamp()
@@ -99,7 +99,7 @@ exports.run = async (client, message, args) => {
       
       let endEmbed = new Discord.RichEmbed()
       .setColor("00deff")
-      .setTitle(`${message.guild.name} - Çekiliş Sistemi  \n\nÇekiliş Hediyesi: ${title}`)
+      .setTitle(`${message.guild.name} - Çekiliş \n\nÇekiliş Hediyesi: ${title}`)
       .setDescription(`**Çekilişi Kazanan :** ${gFilter}`)
       .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
       .setFooter(`Çekilişi Yapan Yetkili : ${message.author.username}`, message.author.avatarURL)
