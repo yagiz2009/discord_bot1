@@ -23,8 +23,8 @@ exports.run = async (client, message, args) => {
   if (!room) {
   var giveEmbed1 = new Discord.RichEmbed()
   .setColor("ff0000")
-  .setTitle(`${message.guild.name} - Çekiliş Sistemi `)
-  .setDescription(`**\n:x: Çekiliş kanalını etiketlemelisin !** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
+  .setTitle(`${message.guild.name} - Çekiliş`)
+  .setDescription(`**\n:x: !çekiliş #kanal süre ödül ** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
   .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
       .setTimestamp()
 
@@ -84,7 +84,7 @@ exports.run = async (client, message, args) => {
   let giveEmbed = new Discord.RichEmbed()
   .setColor("00deff")
   .setTitle(`${message.guild.name} - Çekiliş Sistemi  \n\nÇekiliş Hediyesi: ${title}`)
-  .setDescription(`🎉 emojisine tıklayarak çekilişe katılabilirsiniz.\n\n**Çekiliş Süresi :**\` ${duration} ${sure}\``)
+  .setDescription(`🎉 Çekiliş Bu Kanalda Açıklanacaktır.\n\n**Çekiliş Süresi :**\` ${duration} ${sure}\``)
   .setThumbnail('https://i.ibb.co/H2q4pDb/cekilis2.png')
   .setTimestamp()
   .setFooter(`Çekilişi Yapan Yetkili : ${message.author.username}`, message.author.avatarURL);
