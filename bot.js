@@ -108,3 +108,35 @@ client.on('error', e => {
 });
 
 client.login(ayarlar.token);
+
+client.on('message', async message => {
+  
+  let kufur = await db.fetch(`kufur_${message.guild.id}`)
+  
+  if (!kufur || kufur === "kapali" || kufur === null || kufur === undefined) {
+    return
+  } else if (kufur === "acik"){
+   
+    let kelime = ["amk", "piç", "orospu", "oç", "amcık", "yarrak", "göt", "amına", "sik", "sikik", "sikerim", "kaltak", "yavşak", "meme"]
+    
+    if (kelime.some(word => message.content.includes(word))){
+      try {
+        if (!message.member.hasPermissions("ADMINISTRATOR")){
+          message.delete();
+          message.channel.send(`${message.member} Sunucuda Küfür Etmene İzin Veremem!`).then(msg => {
+            msg.delete(5000);
+          })
+        }
+      } catch(err) {
+            console.log(err);
+          }
+    }
+  }
+})
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'js') {  // !js Örnek
+       msg.member.addRole("645241430591406082") //Javascript İdi 
+    msg.reply('Js Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
+  } 
+});
