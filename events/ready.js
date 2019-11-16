@@ -8,7 +8,7 @@ var prefix = ayarlar.prefix;
 module.exports = client => {
 var oyun = [
         "🔥Kesintiler Yaşanabilir! | !yardım",
-        "!yardım✨",
+        "!desteksunucu✨",
         "Tosun Bot | !yardım⭐️"  
     ];
 
