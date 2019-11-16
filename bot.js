@@ -115,24 +115,3 @@ client.on('message', msg => {
     msg.reply('Js Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
   } 
 });
-
-client.on('guildMemberAdd', async member => {
-  let rol = await db.fetch(`otoR_${member.guild.id}`);
-  let kanal = await db.fetch(`otoK_${member.guild.id}`);
-  let mesaj = await db.fetch(`otomesaj_${member.guild.id}`);
-  let rol2 = await db.fetch(`botR_${member.guild.id}`);
-  
-  if (member.user.bot === true){
-    
-    if (!rol2) return
-    
-    member.addRole(member.guild.roles.get(rol2));
-  } else {
-  
-  if (!rol) return
-  member.addRole(member.guild.roles.get(rol))
-  
-  if (!kanal) return
-  member.guild.channels.get(kanal).send(`${member} Kullanıcısına \`${member.guild.roles.get(rol).name}\` rolü verildi! **${member.guild.members.size}** Kişiyiz!`)
-  }
-})
