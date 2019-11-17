@@ -186,3 +186,67 @@ client.on("message", async message => {
     if (message.deletable) message.delete();
     message.channel.send(`Hey ${message.author}, sunucuda link paylaşamazsın!`)
 })
+
+client.on("guildMemberAdd", async(member) => {
+    let resimlihgbb = await db.fetch(`giriş_${member.guild.id}`);
+    if(resimlihgbb) {
+      const gözelkanal = member.guild.channels.get(db.fetch(`giriş_${member.guild.id}`))
+      if(gözelkanal) {
+      let username = member.user.username;
+        if(gözelkanal.type === "text") {
+          const bg = await Jimp.read("https://cdn.discordapp.com/attachments/499911418896973824/500023171827761154/guildAdd_2.png");
+          const userimg = await Jimp.read(member.user.avatarURL ? member.user.avatarURL : client.user.avatarURL);
+          var font;
+          if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+          else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+          else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+          await bg.print(font, 430, 170, member.user.tag);
+          await userimg.resize(362, 362);
+          await bg.composite(userimg, 43, 26).write("./img/"+ client.user.username + "Hosgeldin.png");
+          setTimeout(function () {
+            if(member.user.id === ayarlar.sahip){
+              gözelkanal.send(new Discord.Attachment("./img/" + client.user.username + "Hosgeldin.png"))
+              gözelkanal.send("İşte Bak! Kurucum sunucuya giriş yaptı.")
+            } else {    
+              gözelkanal.send(new Discord.Attachment("./img/" + client.user.username + "Hosgeldin.png"));
+            }
+          }, 1000);
+          setTimeout(function () {
+            fs.unlinkSync("./img/" + client.user.username + "Hosgeldin.png");
+          }, 10000);
+        }
+      }
+    }
+})
+
+client.on("guildMemberRemove", async(member) => {
+    let resimlihgbb = await db.fetch(`giriş_${member.guild.id}`);
+    if(resimlihgbb) {
+        const gözelkanal = member.guild.channels.get(db.fetch(`giriş_${member.guild.id}`))
+    if (gözelkanal) {
+        let username = member.user.username;
+        if (gözelkanal.type === "text") {            
+            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/499911418896973824/500023173459345416/guildRemove_2.png");
+            const userimg = await Jimp.read(member.user.avatarURL ? member.user.avatarURL : client.user.avatarURL);
+            var font;
+            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+            await bg.print(font, 430, 170, member.user.tag);
+            await userimg.resize(362, 362);
+            await bg.composite(userimg, 43, 26).write("./img/"+ client.user.username + "Gorusuruz.png");
+              setTimeout(function () {
+                if(member.user.id === ayarlar.sahip){
+                  gözelkanal.send(new Discord.Attachment("./img/" + client.user.username + "Gorusuruz.png"))
+                  gözelkanal.send("Kurucum sunucunuzdan ayrıldı..")
+                } else {
+                  gözelkanal.send(new Discord.Attachment("./img/" + client.user.username + "Gorusuruz.png"));
+                }
+              }, 1000);
+              setTimeout(function () {
+                fs.unlinkSync("./img/" + client.user.username + "Gorusuruz.png");
+              }, 10000);
+        }
+    }
+  }
+})
