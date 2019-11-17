@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const moment = require('moment')
 const client = new Discord.Client();
 
-const botadi = "Botunuzun Adı"
+const botadi = "Tosun Bot"
 
 exports.run = async (bot, msg, args) => {
   //BU KOMUT CODARE SUNUCUSUNDAN YUSUF A AİTTİR!
