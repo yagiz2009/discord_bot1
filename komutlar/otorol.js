@@ -1,61 +1,59 @@
+const fs = require ('fs')
 const Discord = require('discord.js')
-const db = require('quick.db');
-const ayarlar = require('../ayarlar.json')
+var sunucuyaözelayarlarOtorol = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
 
-exports.run = async(client, message, args) => {
 
-      if (!message.guild) {
-    const ozelmesajuyari = new Discord.RichEmbed()
-    .setColor(0x2488E7)
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .addField('Sadece herhangi bir sunucudan mesaj gönderebilirim.:relaxed: ')
-    return message.author.sendEmbed(ozelmesajuyari); }
-
-  if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(':no_entry: Otorol ayarlamak için `Rolleri Yönet` yetkisine sahip olman gerek.')
-
-  
-    if (args[0] == 'ayarla') {
- let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
-  let newRole;
-  let tworole;
-  if (!rol) return message.channel.send(':no_entry: Otorol ayarlamanız için bir rol etiketlemeniz gerek. `/otorol ayarla @Üye #kanal`')
-  else newRole = message.mentions.roles.first().id
-  let isim = message.mentions.roles.first().name  
-  let otorolkanal = message.mentions.channels.first();
-  if (!otorolkanal) return message.channel.send(':no_entry: Otorol ayarlamanız için bir rol etiketlemeniz gerek. `g!otorol ayarla @Üye #kanal`')
-    db.set(`otorolisim_${message.guild.id}`, isim)
-  let i = await  db.set(`otorolKanal_${message.guild.id}`, message.mentions.channels.first().id)
-  let otorol = await db.set(`autoRole_${message.guild.id}`, newRole)
-  if (!message.guild.roles.get(newRole)) return message.channel.send(":no_entry: Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.")
-    message.channel.send(`Otorol, <@&${newRole}> mesaj kanalı <#${i}> olarak ayarlandı.`)  
+exports.run = async (bot, message, args) =>
+{
+      let profil = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
+  var mentionedChannel = message.mentions.channels.first();
+  if (!mentionedChannel && args[0] !== "sıfırla") return message.channel.send("Ayarlamam İçin Bir Rol Etiketlemelisin. \nRolü Etiketleyemiyorsan **Rolün Etiketleme Seçeneğini Aktif Etmeyi Unutma** \nÖrnek Kullanım : ::otorol @rol #kanal \n**Oto Yazı Kapatmak İstiyorsan ::kapat otoyazı**");
+  if (message.guild.member(message.author.id).hasPermission(0x8))
+   
+    {
+      var mentionedRole = message.mentions.roles.first();
+      if (!mentionedRole) return message.channel.send("**Doğru Kullanım = ::otorol @<roladı> #<metinkanalı>**".then(msg => msg.delete(5000)));
      
-  } 
 
-  if (args[0] == 'kapat') {
-    
+    if(!profil[message.guild.id]){
+   
+        profil[message.guild.id] = {
+     
+            sayi: mentionedRole.id,
+      kanal: mentionedChannel.id
+        };
+    }
+   
+    profil[message.guild.id].sayi = mentionedRole.id
+  profil[message.guild.id].kanal = mentionedChannel.id
+   
+    fs.writeFile("./otorol.json", JSON.stringify(profil), (err) => {
+        console.log(err)
 
-    
-    
-    db.delete(`otorolisim_${message.guild.id}`)
-        db.delete(`otorolKanal_${message.guild.id}`)
-    db.delete(`autoRole_${message.guild.id}`)
+    })
 
-    message.channel.send(`Otorolü başarıyla kapattım.`)
-  }
-};
-  
-  
-    
-exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: ['oto-rol'],
-    permLevel: 0
+    const embed = new Discord.RichEmbed()
+        .setDescription(`:white_check_mark: Otorol başarıyla ${args[0]} olarak ayarlandı! \nOtorol Mesaj kanalı başarıyla ${mentionedChannel} olarak ayarlandı.\n\nOto Mesaj'ı kapatabilmek için **+otomesajkapat** yazabilirsiniz!`)
+        .setColor("RANDOM")
+        .setTimestamp()
+    message.channel.send({embed})
 }
 
-exports.help = {
-    name: 'otorol',
-    description: 'Sunucuya giren kullanıcıya seçtiğiniz rolü otomatik verir.',
-    usage: 'otorol <@rol>'
+}
+
+
+
+exports.conf =
+{
+  enabled: true,
+  guildOnly: true,
+  permLevel: 3,
+  aliases: ["setautorole", "otorol", "otoroldeğiştir"]
+}
+
+exports.help =
+{
+  name: 'otorol',
+  description: 'Sunucuya Girenlere Verilecek Olan Otorolü Ayarlar.',
+  usage: 'otorolayarla'
 }
