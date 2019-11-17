@@ -178,4 +178,3 @@ client.on('message', msg => {
     msg.reply('**Python** Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
   } 
 });
-
