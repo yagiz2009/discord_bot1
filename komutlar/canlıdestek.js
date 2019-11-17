@@ -5,7 +5,7 @@ exports.run = async(client, message, args) => {
   let isEnabled;
   message.channel.send(`Birazdan yetkili ekibimiz sizinle ilgilenecektir.`);
   let chan = message.channel;
-  let destekKanal = "645744876855492639";/// buraya canlı destek mesajı atılacak kanal idisi
+  let destekKanal = "645173555667009546";/// buraya canlı destek mesajı atılacak kanal idisi
   const embed = new Discord.RichEmbed()
       .addField('Dikkat', `Canlı Destek Talebi`)
       .setColor("BLUE")
