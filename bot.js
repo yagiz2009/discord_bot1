@@ -192,3 +192,27 @@ client.on("message", async message => {
   if(message.guild) return;
   client.channels.get('645670665784918017').send(new Discord.RichEmbed().setAuthor("Yeni Bir DM", client.user.avatarURL).setFooter(message.author.tag, message.author.avatarURL).setDescription(`**Gönderenin ID:** ${message.author.id}`).setTimestamp().addField("Mesaj", message.content).setColor("RANDOM"))
 })
+
+client.on('guildMemberAdd', async (member, guild, message) => {
+//CodAre
+let role = await  db.fetch(`otorolisim_${member.guild.id}`)
+ let otorol = await db.fetch(`autoRole_${member.guild.id}`)
+ let i = await db.fetch(`otorolKanal_${member.guild.id}`)
+ if (!otorol || otorol.toLowerCase() === 'yok') return;
+else {
+ try {
+  //CodAre
+
+  if (!i) return //CodAre
+
+  member.addRole(member.guild.roles.get(otorol))
+                        var embed = new Discord.RichEmbed()
+                        .setDescription(`**Sunucuya Yeni Katılan** \`${member.user.tag}\` **Kullanıcısına** \`${role}\` **Rolü verildi.**`)
+                        .setColor('0x36393E') //CodAre
+                        .setFooter(`Otorol Sistemi`)
+     member.guild.channels.get(i).send(embed)  } catch (e) {
+ console.log(e)
+}
+}
+
+});
