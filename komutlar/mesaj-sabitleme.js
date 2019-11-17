@@ -19,7 +19,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'pin',
+  name: 'sabitle',
   description: 'Mesajınızı sabitler',
-  usage: 'pin'
+  usage: 'yazıyı sabitler'
 };
