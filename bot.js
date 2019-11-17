@@ -178,3 +178,29 @@ client.on('message', msg => {
     msg.reply('**Python** Rolünü Başarıyla Aldın.'); // Kendinize Göre Editliyin
   } 
 });
+
+client.on("message", msg => {
+  db.fetch(`reklam_${msg.guild.id}`).then(i => {
+    if (i == 'acik') {
+        const reklam = [".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", "net", ".rf.gd", ".az", ".party", "discord.gg",];
+        if (reklam.some(word => msg.content.includes(word))) {
+          try {
+            if (!msg.member.hasPermission("BAN_MEMBERS")) {
+                  msg.delete();
+                    return msg.reply('Bu Sunucuda Reklam Engelleme Filtresi Aktiftir. Reklam Yapmana İzin Veremem !').then(msg => msg.delete(3000));
+    
+
+  msg.delete(3000);                              
+
+            }              
+          } catch(err) {
+            console.log(err);
+          }
+        }
+    }
+    else if (i == 'kapali') {
+      
+    }
+    if (!i) return;
+  })
+    });
