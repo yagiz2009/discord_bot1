@@ -1,3 +1,15 @@
+const db = require('quick.db')
+const Discord = require('discord.js')
+
+exports.run = async (client, message, args, config) => {
+  let kullanıcı = await db.fetch(`gold_${message.author.id}`);
+
+  if( kullanıcı == undefined){
+message.reply("**Maalesef bu komutu kullanamazsın gold üye değilsin :(**")
+  }else{
+      if( kullanıcı == "gold"){
+
+        
 const Discord = require('discord.js');
 const moment = require('moment');
 const ms = require('ms')
@@ -6,7 +18,7 @@ const db = require("quick.db")
 exports.run = async (client, message, args) => {
   message.delete(4000)
   
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`:x: Bu komutu kullanabilmek için "\`Üyeleri Yasaklama\`" iznine ihtiyacın var.`).then(msg => msg.delete(5000));
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`:x: Bu komutu kullanabilmek için "\`Gold Üye'ye\`" iznine ihtiyacın var.`).then(msg => msg.delete(5000));
 
   
   let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
@@ -87,7 +99,7 @@ exports.run = async (client, message, args) => {
   .setDescription(`🎉 Çekiliş Bu Kanalda Açıklanacaktır.\n\n**Çekiliş Süresi :**\` ${duration} ${sure}\``)
   .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
   .setTimestamp()
-  .setFooter(`Çekilişi Yapan Yetkili : ${message.author.username}`, message.author.avatarURL);
+  .setFooter(`Çekilişi Yapan Kişi : ${message.author.username}`, message.author.avatarURL);
   room.send(giveEmbed).then(m => {
    
     let re = m.react('🎉');
@@ -118,7 +130,24 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'çekiliş',
-  description: 'Çekiliş yaparsınız. Kullanım: ,çekiliş <#kanal> <süre> <ödül>',
+  description: 'Çekiliş yaparsınız. Kullanım: ,çekiliş <#kanal> <süre> <ödüll>',
   usage: 'çekiliş <#kanal> <süre> <ödül>'
 };
+
+    }
+      
+  }
+}
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
+};
+
+exports.help = {
+  name: 'çekiliş', 
+  description: "",
+  usage: ''
+};
+   
