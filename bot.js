@@ -427,22 +427,34 @@ client.on('guildMemberAdd', async member => {
   }
 })
 
-client.on("messageDelete", async (message, channel) => {
-if(message.author.bot || message.channel.type === "dm") return;
+client.on("message", async msg => { // !seviye sistemi
+  const db = require('quick.db');
+  if (msg.channel.type === "dm") return;
+  if(msg.author.bot) return;  
   
-  if (message.author.bot) return;
+  if (msg.content.length > 7) {
+    
+    db.add(`puancik_${msg.author.id + msg.guild.id}`, 1)
+};
+
+  if (db.fetch(`puancik_${msg.author.id + msg.guild.id}`) > 150) {
+    
+    db.add(`seviye_${msg.author.id + msg.guild.id}`, 1)
+    if (msg.guild.id === "521315934825349121") return;
+    msg.channel.send(`${client.emojis.get(client.emoji.levelup)}Tebrik ederim <@${msg.author.id}>! Seviye atladın ve **${db.fetch(`seviye_${msg.author.id + msg.guild.id}`)}** seviye oldun!`)
+    db.delete(`puancik_${msg.author.id + msg.guild.id}`)};
+ 
+  if (db.has(`roll_${msg.guild.id}`) === true) {
+  if (db.has(`rollss_${msg.guild.id}`) === true) {
+    
+ var r = db.fetch(`roll_${msg.guild.id}`)
+ var s = db.fetch(`rollss_${msg.guild.id}`)
   
-  var user = message.author;
-  
-  let sChannel2 = message.guild.channels.find(c => c.name === "mesaj-log")
-  const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setAuthor(`Mesaj silindi.`, message.author.avatarURL)
-  .addField("Kullanıcı Tag", message.author.tag, true)
-  .addField("Kanal Adı", message.channel.name, true)
-  .addField("Silinen Mesaj", "```" + message.content + "```")
-  .setThumbnail(message.author.avatarURL)
-  .setFooter(`Bilgilendirme  • bügün saat ${message.createdAt.getHours()+3}:${message.createdAt.getMinutes()}`, `${client.user.displayAvatarURL}`)
-  sChannel2.send(embed);
-  
+  if (db.fetch(`seviye_${msg.author.id + msg.guild.id}`) == s) {
+    if (msg.member.roles.has(msg.guild.roles.get(r).id) === false) {
+    msg.channel.send(`<@${msg.author.id}> başarıyla **${db.fetch(`seviye_${msg.author.id + msg.guild.id}`) - 1 || 0}** seviyeyi geçtin ve **${msg.guild.roles.get(r).name}** rolünü aldın!`)
+    msg.member.addRole(msg.guild.roles.get(r).id)
+    }
+  };
+}};
 });
