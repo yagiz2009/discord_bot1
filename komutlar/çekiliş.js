@@ -1,153 +1,108 @@
-const db = require('quick.db')
-const Discord = require('discord.js')
-
-exports.run = async (client, message, args, config) => {
-  let kullanıcı = await db.fetch(`gold_${message.author.id}`);
-
-  if( kullanıcı == undefined){
-message.reply("**Maalesef bu komutu kullanamazsın gold üye değilsin :(**")
-  }else{
-      if( kullanıcı == "gold"){
-
-        
 const Discord = require('discord.js');
 const moment = require('moment');
 const ms = require('ms')
-const ayarlar = require('../ayarlar.json');
-const db = require("quick.db")
-exports.run = async (client, message, args) => {
-  message.delete(4000)
-  
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`:x: Bu komutu kullanabilmek için "\`Gold Üye'ye\`" iznine ihtiyacın var.`).then(msg => msg.delete(5000));
-
-  
-  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-  
-  let room = message.mentions.channels.first()
-  let title = args.slice(3).join(" ")
-  let duration = args[1]
-  let sure = args[2]
-  let bisi;
-  let filter = m => m.author.id === message.author.id;
-  
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`Bu komutu kullanabilmek için "\`Mesajları Yönet\`" yetkisine sahip olmalısın.`);
-  
-  if (!room) {
-  var giveEmbed1 = new Discord.RichEmbed()
-  .setColor("ff0000")
-  .setTitle(`${message.guild.name} - Çekiliş`)
-  .setDescription(`**\n:x: !çekiliş #kanal süre ödül ** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-  .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
-      .setTimestamp()
-
-  .setFooter(`${message.author.username}`, message.author.avatarURL);
-  return message.channel.send(giveEmbed1) 
-  }
-  
-  if (!duration || duration >= '60')
-
-  {
-    var giveEmbed1 = new Discord.RichEmbed()
-    .setColor("ff0000")
-    .setTitle(`${message.guild.name} - Çekiliş Zamanı `)
-    .setDescription(`**\n:x: Bir süre yazmalısın !** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-    .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
-        .setTimestamp()
-
-    .setFooter(`${message.author.username}`, message.author.avatarURL);
-    return message.channel.send(giveEmbed1) 
-    }
-
-  
-  if (!sure || !sure == 'saniye' || !sure == 'dakika' || !sure == 'saat' || !sure == 'gün' )
-
-  {
-    var giveEmbed1 = new Discord.RichEmbed()
-    .setColor("ff0000")
-    .setTitle(`${message.guild.name} - Çekiliş`)
-     .setDescription(`**\n:x: Süreyi doğru yazmalısın !** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-    .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
-        .setTimestamp()
-
-    .setFooter(`${message.author.username}`, message.author.avatarURL);
-    return message.channel.send(giveEmbed1) 
-    }
-  
-  if (!title) 
-  
-  {
-    var giveEmbed1 = new Discord.RichEmbed()
-    .setColor("ff0000")
-    .setTitle(`${message.guild.name} - Çekiliş`)
-    .setDescription(`**\n:x: Ödülü yazmalısın.** ***\`\`\`${prefix}çekiliş #çekiliş 2 gün Steam Key\`\`\`\n***`)
-    .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
-        .setTimestamp()
-
-    .setFooter(`${message.author.username}`, message.author.avatarURL);
-    return message.channel.send(giveEmbed1) 
-    }
-
-  
-  if (sure == 'saniye') bisi = 'seconds'
-  if (sure == 'dakika') bisi = 'minutes'
-  if (sure == 'saat') bisi = 'hours'
-  if (sure == 'gün') bisi = 'days' 
-  
-  let giveEmbed = new Discord.RichEmbed()
-  .setColor("00deff")
-  .setTitle(`${message.guild.name} - Çekiliş \n\nÇekiliş Hediyesi: ${title}`)
-  .setDescription(`🎉 Çekiliş Bu Kanalda Açıklanacaktır.\n\n**Çekiliş Süresi :**\` ${duration} ${sure}\``)
-  .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
-  .setTimestamp()
-  .setFooter(`Çekilişi Yapan Kişi : ${message.author.username}`, message.author.avatarURL);
-  room.send(giveEmbed).then(m => {
-   
-    let re = m.react('🎉');
-    setTimeout(() => {
-      let users = m.reactions.get("🎉").users
-      let list = users.array().filter(u => u.id !== m.author.id !== client.user.id);
-      let gFilter = list[Math.floor(Math.random() * list.length) + 0]
-      if (gFilter == client.user) gFilter = `Kimse`
-      
-      let endEmbed = new Discord.RichEmbed()
-      .setColor("00deff")
-      .setTitle(`${message.guild.name} - Çekiliş \n\nÇekiliş Hediyesi: ${title}`)
-      .setDescription(`**Çekilişi Kazanan :** ${gFilter}`)
-      .setThumbnail('https://cdn.discordapp.com/attachments/545569894268272650/645293409392656384/cekilis-png-1.png')
-      .setFooter(`Çekilişi Yapan Yetkili : ${message.author.username}`, message.author.avatarURL)
-      m.edit(endEmbed)
-   }, ms(`${duration} ${bisi}`))
-  });
-  
-
+exports.run = async (client, message) => {
+var time = moment().format('Do MMMM YYYY , hh:mm');
+var room;
+var title;
+var duration;
+var currentTime = new Date(),
+hours = currentTime.getHours() + 3 ,
+minutes = currentTime.getMinutes(),
+done = currentTime.getMinutes() + duration,
+seconds = currentTime.getSeconds();
+if (minutes < 10) {
+minutes = "0" + minutes;
 }
-
+var suffix = "AM";
+if (hours >= 12) {
+suffix = "PM";
+hours = hours - 12;
+}
+if (hours == 0) {
+hours = 12;
+}
+var filter = m => m.author.id === message.author.id;
+ 
+  
+  
+      message.channel.send(`:eight_pointed_black_star:| **Çekilişin yapılacağı kanalın adını yaz**`).then(msg => {
+      message.channel.awaitMessages(filter, {
+        max: 1,
+        time: 20000,
+        errors: ['time']
+      }).then(collected => {
+        let room = message.guild.channels.find('name' , collected.first().content);
+        if(!room) return message.channel.send(':heavy_multiplication_x:| **Böyle bir kanal bulamadım**');
+        room = collected.first().content;
+        collected.first().delete();
+        msg.edit(':eight_pointed_black_star:| **Çekilişin süresini belirle (1s, 1m, 1h, 1d, 1w)**').then(msg => {
+          message.channel.awaitMessages(filter, {
+            max: 1,
+            time: 20000,
+            errors: ['time']
+          }).then(collected => {
+            if(!collected.first().content.match(/[1-60][s,m,h,d,w]/g)) return message.channel.send(':heavy_multiplication_x:| **Böyle bir süre bilmiyorum :(**');
+            duration = collected.first().content
+            collected.first().delete();
+            msg.edit(':eight_pointed_black_star:| **Şimdi de ödülü yaz bakalım**').then(msg => {
+              message.channel.awaitMessages(filter, {
+                max: 1,
+                time: 20000,
+                errors: ['time']
+              }).then(collected => {
+                title = collected.first().content;
+                collected.first().delete();
+                msg.delete();
+                message.delete();
+                try {
+                  let giveEmbed = new Discord.RichEmbed()
+                  .setColor("#f558c9")
+                  .setDescription(`**Ödül: ${title}** \n🎉'a Basarak Katıl \nKalan Süre : ${duration} \n **Başlama Zamanı :** ${hours}:${minutes}:${seconds} ${suffix}`)
+                  .setFooter(message.author.username + " (TrexBot çekiliş sistemi)", message.author.avatarURL);
+                  message.guild.channels.find("name" , room).send(' :heavy_check_mark: **ÇEKİLİŞ BAŞLADI** :heavy_check_mark:' , {embed: giveEmbed}).then(m => {
+                     let re = m.react('🎉');
+                     setTimeout(() => {
+                       let users = m.reactions.get("🎉").users
+                       let list = users.array().filter(u => u.id !== m.author.id !== client.user.id);
+                       let gFilter = list[Math.floor(Math.random() * list.length) + 0]
+                       let endEmbed = new Discord.RichEmbed()
+                       .setAuthor(message.author.username, message.author.avatarURL)
+                       .setTitle(title)
+                       .setColor("#f558c9")
+            .setFooter("(TrexBot çekiliş sistemi)")
+                       .addField('Çekiliş Bitti !🎉',`Kazanan : ${gFilter} \nBitiş zamanı :`)
+                       .setTimestamp()
+                     m.edit('** 🎉 ÇEKİLİŞ BİTTİ 🎉**' , {embed: endEmbed});
+                       
+                       var embedLel = new Discord.RichEmbed()
+                        .setColor("#f558c9")
+                        .setDescription("Ödülünü Moderatörleri Etiketleyerek Alabilirsin!").setFooter("(TrexBot çekiliş sistemi)")
+                    message.guild.channels.find("name" , room).send(`**Tebrikler ${gFilter}! \`${title}\` kazandın!**` , embedLel)
+                }, ms(duration));
+            });
+                } catch(e) {
+                message.channel.send(`:heavy_multiplication_x:| **Maalesef gerekli yetkilerim bulunmamakta**`);
+                  console.log(e);
+                }
+              });
+            });
+          });
+        });
+      });
+    });
+  
+  
+};
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 0
+  permLevel: 2
 };
-
 exports.help = {
-  description: 'Çekiliş yaparsınız. Kullanım: ,çekiliş <#kanal> <süre> <ödüll>',
-  usage: 'çekiliş <#kanal> <süre> <ödül>'
-};
-
-    }
-      
-  }
-}
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0
-};
-
-exports.help = {
-  name: 'çekiliş', 
-  description: "",
-  usage: ''
+  name: 'çekiliş',
+  description: 'Çekiliş mi? Sunucunda güzel şeyler olacak :3',
+  usage: 'çekiliş'
 };
    
