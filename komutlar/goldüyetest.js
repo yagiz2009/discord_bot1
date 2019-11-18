@@ -34,7 +34,7 @@ exports.conf = {
 
 exports.help = {   
 name: 'resim',   
-description: 'Rastgele manzara fotoğrafı atar.',   
+description: 'Rastgele manzara fotoğrafı atar..',   
 usage: 'manzara' 
 }; 
 
