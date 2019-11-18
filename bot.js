@@ -377,7 +377,7 @@ client.on("guildMemberRemove", async member => {
   try {
     let giriscikiskanalID = giriscikis[member.guild.id].kanal;
     let giriscikiskanali = client.guilds.get(member.guild.id).channels.get(giriscikiskanalID);
-    giriscikiskanali.send(`:loudspeaker: ${member.user.tag}, aramızdan ayrıldı, \**${sayac[member.guild.id].sayi}\** kişi olmamıza \**${sayac[member.guild.id].sayi - member.guild.memberCount}\** kişi kaldı!`);
+    giriscikiskanali.send(`📤 ${member.user.tag}, aramızdan ayrıldı, \**${sayac[member.guild.id].sayi}\** kişi olmamıza \**${sayac[member.guild.id].sayi - member.guild.memberCount}\** kişi kaldı!`);
   } catch (e) { // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
     return console.log(e)
   }
@@ -399,9 +399,30 @@ client.on("guildMemberAdd", async member => {
   try {
     let giriscikiskanalID = giriscikis[member.guild.id].kanal;
     let giriscikiskanali = client.guilds.get(member.guild.id).channels.get(giriscikiskanalID);
-    giriscikiskanali.send(`:loudspeaker: ${member.user.tag}, aramıza katıldı **${sayac[member.guild.id].sayi}** kişi olmamıza **${sayac[member.guild.id].sayi - member.guild.memberCount}** kişi kaldı!` );
+    giriscikiskanali.send(`📥 ${member.user.tag}, aramıza katıldı **${sayac[member.guild.id].sayi}** kişi olmamıza **${sayac[member.guild.id].sayi - member.guild.memberCount}** kişi kaldı!` );
   } catch (e) { // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
     return console.log(e)
   }
  
 });
+
+client.on('guildMemberAdd', async member => {
+  let rol = await db.fetch(`otoR_${member.guild.id}`);
+  let kanal = await db.fetch(`otoK_${member.guild.id}`);
+  let mesaj = await db.fetch(`otomesaj_${member.guild.id}`);
+  let rol2 = await db.fetch(`botR_${member.guild.id}`);
+  
+  if (member.user.bot === true){
+    
+    if (!rol2) return
+    
+    member.addRole(member.guild.roles.get(rol2));
+  } else {
+  
+  if (!rol) return
+  member.addRole(member.guild.roles.get(rol))
+  
+  if (!kanal) return
+  member.guild.channels.get(kanal).send(`${member} Kullanıcısına \`${member.guild.roles.get(rol).name}\` rolü verildi! **${member.guild.members.size}** Kişiyiz!`)
+  }
+})

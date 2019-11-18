@@ -76,7 +76,7 @@ exports.run = async (client, message, args) => {
  
         const embed = new Discord.RichEmbed()
                 .setDescription(`Sayaç, başarılı bir şekilde \`${args[0]}\` olarak ayarlandı, sayaç kanalı ise ${mentionedChannel} olarak ayarlandı!`)
-                .setFooter('Fuse, iyi eğlenceler diler!', client.user.avatarURL)
+                .setFooter('Tosun Bot, iyi eğlenceler diler!', client.user.avatarURL)
                 .setColor("RANDOM")
                 .setTimestamp()
         message.channel.send({embed})
