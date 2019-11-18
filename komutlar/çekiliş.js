@@ -102,7 +102,7 @@ exports.conf = {
 };
 exports.help = {
   name: 'çekiliş',
-  description: 'Çekiliş mi? Sunucunda güzel şeyler olacak :3',
+  description: 'Çekiliş mi?? Sunucunda güzel şeyler olacak :3',
   usage: 'çekiliş'
 };
    
