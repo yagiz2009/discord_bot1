@@ -426,3 +426,23 @@ client.on('guildMemberAdd', async member => {
   member.guild.channels.get(kanal).send(`${member} Kullanıcısına \`${member.guild.roles.get(rol).name}\` rolü verildi! **${member.guild.members.size}** Kişiyiz!`)
   }
 })
+
+client.on("messageDelete", async (message, channel) => {
+if(message.author.bot || message.channel.type === "dm") return;
+  
+  if (message.author.bot) return;
+  
+  var user = message.author;
+  
+  let sChannel2 = message.guild.channels.find(c => c.name === "mesaj-log")
+  const embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setAuthor(`Mesaj silindi.`, message.author.avatarURL)
+  .addField("Kullanıcı Tag", message.author.tag, true)
+  .addField("Kanal Adı", message.channel.name, true)
+  .addField("Silinen Mesaj", "```" + message.content + "```")
+  .setThumbnail(message.author.avatarURL)
+  .setFooter(`Bilgilendirme  • bügün saat ${message.createdAt.getHours()+3}:${message.createdAt.getMinutes()}`, `${client.user.displayAvatarURL}`)
+  sChannel2.send(embed);
+  
+});
