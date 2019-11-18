@@ -25,19 +25,6 @@ let replies = ["https://i.imgyukle.com/2019/09/06/oXCl7o.jpg", "https://i.imgyuk
   message.channel.send(gifembed); 
 };  
 
-exports.conf = {   
-  enabled: true,   
-  guildOnly: false,   
-  aliases: ['manzara'],   
-  permLevel: 0 
-};  
-
-exports.help = {   
-name: 'resim',   
-description: 'Rastgele manzara fotoğrafı atar..',   
-usage: 'manzara' 
-}; 
-
     }
       
   }
