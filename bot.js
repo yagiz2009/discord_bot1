@@ -528,6 +528,40 @@ client.on("roleCreate", async (rolee, member, guild) => {
   }
 });
 
+client.on("guildCreate", guild => {  // sunucuya eklendim ve atıldım
+let add = client.channels.get("649621527771349034")
+const eklendim = new Discord.RichEmbed()
 
+.setTitle(`Sunucuya Eklendim`)
+.setTimestamp()
+.setColor("GREEN")
+.setThumbnail(guild.iconURL)
+.addField(`Sunucu İsmi`,guild.name)
+.addField(`Sunucu ID`, guild.id)
+.addField(`Kurucu`,guild.owner.user.tag)
+.addField(`Kurucu ID`,guild.owner.user.id)
+.addField(`Üye Sayısı`,guild.memberCount)
+
+add.send(eklendim)
+
+});
+
+client.on("guildDelete", guild => {
+let remove = client.channels.get("649621527771349034")
+const atildim = new Discord.RichEmbed()
+
+.setTitle(`Sunucudan Atıldım`)
+.setTimestamp()
+.setColor("RED")
+.setThumbnail(guild.iconURL)
+.addField(`Sunucu İsmi`,guild.name)
+.addField(`Sunucu ID`, guild.id)
+.addField(`Kurucu`,guild.owner.user.tag)
+.addField(`Kurucu ID`,guild.owner.user.id)
+.addField(`Üye Sayısı`,guild.memberCount)
+
+remove.send(atildim)
+
+});
 
 
