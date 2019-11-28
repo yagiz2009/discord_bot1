@@ -512,3 +512,18 @@ client.on('guildMemberAdd', member => {
   })
 });
    
+client.on("roleCreate", async (rolee, member, guild) => {
+  let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);
+  if (rolkoruma == "acik") {
+    rolee.delete();
+    const embed = new Discord.RichEmbed()
+      .setDescription(
+        "Sunucunuzda yeni bir rol oluşturuludu! fakat geri silindi! (Rol Koruma Sistemi)"
+      )
+      .setColor("BLACK");
+    rolee.guild.owner.send(embed);
+    return;
+  } else {
+    return;
+  }
+});
