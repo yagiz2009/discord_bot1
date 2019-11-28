@@ -563,5 +563,3 @@ const atildim = new Discord.RichEmbed()
 remove.send(atildim)
 
 });
-
-
