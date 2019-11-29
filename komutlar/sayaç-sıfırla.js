@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
         if(!sayac[message.guild.id]) {
             const embed = new Discord.RichEmbed()
                 .setDescription(`Sayaç, ayarlanmadığından dolayı sıfırlanamaz!`)
-        .setFooter('Voxy, iyi eğlenceler diler!', client.user.avatarURL)
+        .setFooter('İyi eğlenceler dileriz!', client.user.avatarURL)
                 .setColor("RANDOM")
                 .setTimestamp()
             message.channel.send({embed})
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
         })
         const embed = new Discord.RichEmbed()
             .setDescription(`Sayaç, başarılı bir şekilde sıfırlandı!`)
-      .setFooter('Fuse, iyi eğlenceler diler!', client.user.avatarURL)
+      .setFooter('iyi eğlenceler dileriz!', client.user.avatarURL)
             .setColor("RANDOM")
             .setTimestamp()
         message.channel.send({embed})

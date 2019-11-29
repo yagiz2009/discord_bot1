@@ -508,7 +508,7 @@ client.on('guildMemberAdd', member => {
    .setColor('RANDOM')
    .setThumbnail(member.user.avatarURL)
    .setDescription(`\`\`${member.user.tag}\`\` **adlı kullanıcı sunucuya katıldı , davet eden kullanıcı:** \`\`${davetçi.tag}\`\` (\`\`${invite.uses}\`\` **adet daveti var**)`)
-   member.guild.channels.get('646137115402567683').send(embed)
+   member.guild.channels.get('649272412721905674').send(embed)
   })
 });
    

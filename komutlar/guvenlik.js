@@ -5,7 +5,7 @@ exports.run = async (bot, message) => {
    let c = message.mentions.channels.first()
    if (!c) return message.channel.send('Lütfen bir kanal etiketleyiniz.')
    db.set(`guvenlik${message.guild.id}`, c.id)
-   message.channel.send(':tick: | Güvenlik kanalı başarıyla ayarlandı.')
+   message.channel.send(':inbox_tray: | Güvenlik kanalı başarıyla ayarlandı.')
 }
 
 module.exports.conf = {
