@@ -7,7 +7,7 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
-        "!yardım | !desteksunucu | 🔸 Yeni Komutlar Eklendi! 🔹 ",
+        "!yardım 🔸 !desteksunucu 🔹 ",
     ];
 
     setInterval(function() {
