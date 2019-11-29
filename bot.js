@@ -579,4 +579,3 @@ client.on("channelCreate", async (channel, member, guild) => {
     return;
   }
 });
-
