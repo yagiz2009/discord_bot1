@@ -2,7 +2,7 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "a!";
+  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!";
  
 
   if (!args[0]) {
