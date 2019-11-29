@@ -580,18 +580,3 @@ client.on("channelCreate", async (channel, member, guild) => {
   }
 });
 
-client.on("channelDelete", async (channel, member, guild) => {
-  let kanal = await db.fetch(`kanalk_${channel.guild.id}`);
-  if (kanal == "acik") {
-    const embed = new Discord.RichEmbed()
-      .setDescription(
-        "Sunucunuzda Bir kanal silinmeye kalkıştı fakat geri alındı! (Kanal Koruma Sistemi)"
-      )
-      .setColor("BLACK");
-    channel.guild.owner.send(embed);
-    return;
-  } else {
-    return;
-  }
-});
-

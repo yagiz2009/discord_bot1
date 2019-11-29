@@ -49,7 +49,7 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ["rol-k"],
-  permLevel: 0,
+  permLevel: 2,
   kategori: "sunucu"
 };
 
