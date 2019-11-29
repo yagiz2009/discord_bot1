@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
   .setTimestamp()
   .setDescription('Sergilemiş olduğunuz hatalı & yanlış davranışlar nedeni ile uyarıldınız!')
   .addField('Belirtilen, sebep;', reason)
-  .setFooter('Tosun Bot, iyi eğlenceler diler!', client.user.avatarURL)
+  .setFooter('HAN Bot, iyi eğlenceler diler!', client.user.avatarURL)
   return user.send(embed);
 };
 
