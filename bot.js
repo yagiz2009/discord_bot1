@@ -565,12 +565,12 @@ remove.send(atildim)
 });
 
 client.on("channelCreate", async (channel, member, guild) => {
-  let kanal = await db.fetch(`kanalk_${channel.guild.id}`);
-  if (kanal == "acik") {
+  let çocukadam = await db.fetch(`kanalk_${channel.guild.id}`);
+  if (çocukadam == "acik") {
     channel.delete();
     const embed = new Discord.RichEmbed()
       .setDescription(
-        "Sunucunuzda yeni bir kanal oluşturuludu! fakat geri silindi! (Kanal Koruma Sistemi)"
+        "Sunucunuzda yeni bir kanal oluşturuludu! fakat geri silindi! (Kanal Koruma Sistemi by Beta)"
       )
       .setColor("BLACK");
     channel.guild.owner.send(embed);

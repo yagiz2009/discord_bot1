@@ -5,7 +5,7 @@ let user = message.author.username;
 let guild = message.guild.name;
 let guildid = message.guild.id;
 let kanal = message.channel.name;
-let channel = bot.channels.get("649272032365772810")//bug repot kanal id
+let channel = bot.channels.get("649272032365772810")//bug repot kanal id'i
 let embed = new Discord.RichEmbed()
 .setTitle("Bug Report")
 .setThumbnail("https://cdn.discordapp.com/attachments/545569894268272650/645252657572872192/tosun.png?width=80&height=80")
