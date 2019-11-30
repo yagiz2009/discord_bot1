@@ -757,7 +757,7 @@ if (!modlogkanal) return;
 				let embed = new Discord.RichEmbed()
 					.setColor('RANDOM')
 				.setDescription(`${channel.name} adlı metin kanalı oluşturuldu.`)
-				.setFooter(`Techno Code Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`HAN Bot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -765,7 +765,7 @@ if (!modlogkanal) return;
 				.setColor('RANDOM')
 .setTitle("SES KANALI OLUŞTURULDU")
 				.setDescription(`${channel.name} adlı ses kanalı oluşturuldu!`)
-				.setFooter(`Techno Code Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`HAN Bot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 
 				modlogkanal.send({embed});
 			}
@@ -779,7 +779,7 @@ if (!modlogkanal) return;
 				let embed = new Discord.RichEmbed()
 					.setColor('RANDOM')
 				.setDescription(`${channel.name} adlı metin kanalı silini!`)
-				.setFooter(`Techno Code Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`HAN Bot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -787,7 +787,7 @@ if (!modlogkanal) return;
 				.setColor('RANDOM')
 .setTitle("SES KANALI SİLİNDİ")
 				.setDescription(`${channel.name} adlı ses kanalı silindi`)
-			.setFooter(`Techno Code Mod-Log Sistemi  Kanal ID: ${channel.id}`)
+			.setFooter(`HAN Bot | Mod-Log Sistemi  Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			}
 	})
@@ -806,3 +806,18 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   kanal.send(embed);  
 		
 	})
+
+client.on("guildMemberAdd", async member => { // bot koruma sistemi
+db.fetch(`botkoruma.technocode_${member.guild.id}`).then(technoo => { 
+if(technoo !== "aktif") return; 
+setTimeout(() => { 
+member.guild.fetchMember(member).then(technocodeolmaz => { 
+technocodeolmaz.roles.forEach(function(technocodeolur) { 
+if(technocodeolur.name.includes(member.user.username)) {
+ member.guild.member(member).ban(); 
+
+member.guild.channels.find(technocoders => technocoders.name === "koruma-sistemi").send(`**Techno Code Developer Koruma Sistemi** \n ${member.guild.owner} Sunucuya Bot Çekmeye Çalıştıklarını Bildirmek İstedim. \n__**Atılan Botun Tagı :**__ ${member.user.tag}`) 
+}})})
+ }, 1000) 
+})
+ })
