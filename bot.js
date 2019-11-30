@@ -807,26 +807,4 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
 		
 	})
 
-client.on("message", async msg => {
-  const request = require('node-superfetch');
-  const db = require('quick.db');
-  const ms = require('parse-ms')
-  let timeout = 300000
-  let dakdest = await db.fetch(`goldzzz_${msg.author.id}`);
-  let i = db.fetch(`gold_${msg.author.id}`)
-  if (i == 'gold') {
-    if (dakdest !== null && timeout - (Date.now() - dakdest) > 0) {
-      let time = ms(timeout - (Date.now() - dakdest));
-    } else {
-      if (msg.author.bot) return;
-      if (msg.content.length > 1) {
-        db.set(`goldzzz_${msg.author.id}`, Date.now());
-        msg.channel.send('Bir gold üye belirdi!').then(msg => msg.delete(5000));
-      }
-    };
-  }
-  else if (i == undefined) {
-  }
-  if (!i) return;
 
-});
