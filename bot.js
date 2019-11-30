@@ -806,18 +806,3 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   kanal.send(embed);  
 		
 	})
-
-client.on("guildMemberAdd", async member => { // bot koruma sistemi
-db.fetch(`botkoruma.technocode_${member.guild.id}`).then(technoo => { 
-if(technoo !== "aktif") return; 
-setTimeout(() => { 
-member.guild.fetchMember(member).then(technocodeolmaz => { 
-technocodeolmaz.roles.forEach(function(technocodeolur) { 
-if(technocodeolur.name.includes(member.user.username)) {
- member.guild.member(member).ban(); 
-
-member.guild.channels.find(technocoders => technocoders.name === "koruma-sistemi").send(`**Techno Code Developer Koruma Sistemi** \n ${member.guild.owner} Sunucuya Bot Çekmeye Çalıştıklarını Bildirmek İstedim. \n__**Atılan Botun Tagı :**__ ${member.user.tag}`) 
-}})})
- }, 1000) 
-})
- })
