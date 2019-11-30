@@ -724,49 +724,20 @@ message.channel.send("⍫ Gerekli Roller 🌹")
 }
 });
 
-client.on("guildMemberAdd", async member => { // giriş çıkış hgbb log
-  const channel = member.guild.channels.find('name', 'giriş-çıkış');//log ismini ayarlıyacaksınız giriş-çıkış  adında kanal açın
-  if (!channel) return;
-        let username = member.user.username;
-        if (channel === undefined || channel === null) return;
-        if (channel.type === "text") {
-            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/321646765180715008/520209658204651520/guildAdd.png");
-            const userimg = await Jimp.read(member.user.avatarURL);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./juke/"+ member.id + ".png");
-              setTimeout(function () {
-                    channel.send(new Discord.Attachment("./juke/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./juke/" + member.id + ".png");
-              }, 10000);
-        }
-    })
-client.on("guildMemberRemove", async member => {
-  const channel = member.guild.channels.find('name', 'giriş-çıkış');
-  if (!channel) return;
-        let username = member.user.username;
-        if (channel === undefined || channel === null) return;
-        if (channel.type === "text") {            
-          const bg = await Jimp.read("https://cdn.discordapp.com/attachments/321646765180715008/520209659785773056/guildRemove.png");
- const userimg = await Jimp.read(member.user.avatarURL);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./juke/"+ member.id + ".png");
-              setTimeout(function () {
-                    channel.send(new Discord.Attachment("./juke/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./juke/" + member.id + ".png");
-              }, 10000);
-        }
-    }) 
+client.on("channelDelete", async function(message) {//////////
+if(message.guild.id !== "637624286168743946") return;//////////
+    let logs = await message.guild.fetchAuditLogs({type: 'CHANNEL_DELETE'});//////////
+    if(logs.entries.first().executor.bot) return;
+    message.guild.member(logs.entries.first().executor).roles.filter(role => role.name !== "@everyone").array().forEach(role => {//////////
+                message.guild.member(logs.entries.first().executor).removeRole(message.guild.roles.get("634400717356138496"));
+              message.guild.member(logs.entries.first().executor).removeRole(message.guild.roles.get("634800424456683520"))//////////
+    })//////////
+const sChannel = message.guild.channels.find(c=> c.id ==="634407414069723146")//////////
+const cıks = new Discord.RichEmbed()
+.setColor('RANDOM')///////////
+.setDescription(` \:havali: = ${message.name} = adlı kanal silindi! Silen kişinin yetkilerini aldım! `)
+.setFooter('Kaynak / Kod Paylaşım = Developer: Juke')///
+sChannel.send(cıks)
+  
+message.guild.owner.send(`\:havali: **${message.name}** adlı Kanal silindi Silen  kişinin yetkilerini aldım `)
+}) 
