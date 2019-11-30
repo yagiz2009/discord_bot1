@@ -723,21 +723,3 @@ message.channel.send("⍫ Gerekli Roller 🌹")
 
 }
 });
-
-client.on("channelDelete", async function(message) {//////////
-if(message.guild.id !== "637624286168743946") return;//////////
-    let logs = await message.guild.fetchAuditLogs({type: 'CHANNEL_DELETE'});//////////
-    if(logs.entries.first().executor.bot) return;
-    message.guild.member(logs.entries.first().executor).roles.filter(role => role.name !== "@everyone").array().forEach(role => {//////////
-                message.guild.member(logs.entries.first().executor).removeRole(message.guild.roles.get("634400717356138496"));
-              message.guild.member(logs.entries.first().executor).removeRole(message.guild.roles.get("634800424456683520"))//////////
-    })//////////
-const sChannel = message.guild.channels.find(c=> c.id ==="634407414069723146")//////////
-const cıks = new Discord.RichEmbed()
-.setColor('RANDOM')///////////
-.setDescription(` \:havali: = ${message.name} = adlı kanal silindi! Silen kişinin yetkilerini aldım! `)
-.setFooter('Kaynak / Kod Paylaşım = Developer: Juke')///
-sChannel.send(cıks)
-  
-message.guild.owner.send(`\:havali: **${message.name}** adlı Kanal silindi Silen  kişinin yetkilerini aldım `)
-}) 
