@@ -337,7 +337,7 @@ client.on('message', async message => {
 
 
 
-       message.guild.owner.send("Gerekli Herşey Kuruldu Rahatına Bak! **Tosun Bot'un kıymetini bil :D**")
+       message.guild.owner.send("Gerekli Herşey Kuruldu Rahatına Bak! **HAN  Bot'un kıymetini bil :D**")
      
             })   
     
@@ -429,10 +429,10 @@ client.on('guildMemberAdd', async member => {
 
 client.on("guildCreate", guild => { // Birisi botu sunucuya attıgında bot özel mesaj atar.
 const tesekkurler = new Discord.RichEmbed()
-.setTitle(`Tosun Bot | Bilgilendirme`)
+.setTitle(`HAN Bot | Bilgilendirme`)
 .setTimestamp()
 .setColor("GREEN")
-.setDescription(`Beni Sunucuna Eklediğin İçin Teşekkür Ederim \n Sana En İyi Şekilde Hizmet Edeceğim.\n Eğer Bir Sorunla Karşılaşırsan Destek Sunucuma Gel https://discord.gg/kQJQJgr \n Komutlarımız için **!yardım** komutunu kullanınız.`)
+.setDescription(`Beni Sunucuna Eklediğin İçin Teşekkür Ederim \n Sana En İyi Şekilde Hizmet Edeceğim.\n Eğer Bir Sorunla Karşılaşırsan Destek Sunucuma Gel  https://discord.gg/AHe4u4m \n Komutlarımız için **!yardım** komutunu kullanınız.`)
 guild.owner.send(tesekkurler)
 
 
@@ -610,3 +610,116 @@ client.on("message", async msg => {
           if (!i) return;
   });
 
+client.on('message', async message => {
+const ms = require('ms');
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
+let u = message.mentions.users.first() || message.author;
+if (command === "rol-kur") {
+if (message.guild.channels.find(channel => channel.name === "Bot Kullanımı")) return message.channel.send(" Bot Paneli Zaten Ayarlanmış.")
+message.channel.send(`Bot Gerekli Rollerin kurulumu başlatılsın mı? başlatılacak ise **evet** yazınız.`)
+if (!message.member.hasPermission('ADMINISTRATOR'))
+return message.channel.send(" Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir.");
+message.channel.awaitMessages(response => response.content === 'evet', {
+max: 1,
+time: 10000,
+errors: ['time'],
+})
+
+message.guild.createRole({
+name: '💎 | Sunucu Sahip',
+color: 'ff0000',
+permissions: [
+"ADMINISTRATOR",
+]
+})
+
+
+message.guild.createRole({
+name: '🌺 | Genel Sorumlu',
+color: '49ff00',
+permissions: [
+"MANAGE_GUILD",
+"MANAGE_ROLES",
+"MUTE_MEMBERS",
+"DEAFEN_MEMBERS",
+"MANAGE_MESSAGES",
+"MANAGE_NICKNAMES",
+"KICK_MEMBERS"
+]
+})
+
+message.guild.createRole({
+name: '💮 | Yönetici',
+color: 'ffb400',
+permissions: [
+"MANAGE_GUILD",
+"MANAGE_ROLES",
+"MUTE_MEMBERS",
+"DEAFEN_MEMBERS",
+"MANAGE_MESSAGES",
+"MANAGE_NICKNAMES"
+]
+})
+  
+  
+message.guild.createRole({
+name: '🔨 | Partner Sorumlusu',
+color: '#FF4D00'
+})
+
+message.guild.createRole({
+name: '💸 | Booster',
+color: '#FF77FF',
+})
+  
+message.guild.createRole({
+name: '♾️ | Mustafa Kemal Atatürk',
+color: '#ED9121',
+})
+  
+message.guild.createRole({
+name: '🎑 | Developer',
+color: '#FFCC00',
+})
+  
+message.guild.createRole({
+name: '🌻 | Family',
+color: '#FF8C69',
+})
+  
+message.guild.createRole({
+name: '⚜ | Partner',
+color: '#002FA7'
+})
+  
+message.guild.createRole({
+name: '🔫 | Tek Tabanca',
+color: '#00CCCC',
+})
+  
+message.guild.createRole({
+name: '💖 | Sevgiler',
+color: '#CD00CC',
+})
+  
+message.guild.createRole({
+name: '🌌 | Kız',
+color: 'd300ff',
+})
+
+message.guild.createRole({
+name: '🌃 | Erkek',
+color: '#0000FF',
+})
+
+message.guild.createRole({
+name: '🛡 | Discord Bot',
+color: '0006ff',
+})
+
+message.channel.send("⍫ Gerekli Roller 🌹")
+
+
+}
+});
