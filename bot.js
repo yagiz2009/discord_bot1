@@ -723,4 +723,3 @@ message.channel.send("⍫ Gerekli Roller 🌹")
 
 }
 });
-
