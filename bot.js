@@ -724,51 +724,82 @@ message.channel.send("⍫ Gerekli Roller 🌹")
 }
 });
 
-client.on("guildMemberAdd", async member => {
-         let anan = member.user.avatarURL || member.user.defaultAvatarURL
-    let memberChannel = await db.fetch(`memberChannel_${member.guild.id}`)
-    if (!member.guild.channels.get(memberChannel)) return console.log('memberChannel')
-        let username = member.user.username;
-        if (member.guild.channels.get(memberChannel) === undefined || member.guild.channels.get(memberChannel) === null) return;
-        if (member.guild.channels.get(memberChannel).type === "text") {
-            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184528148725780/guildAdd.png");
-            const userimg = await Jimp.read(anan);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
-              setTimeout(function () {
-                    member.guild.channels.get(memberChannel).send(new Discord.Attachment("./img/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./img/" + member.id + ".png");
-              }, 10000);
-        }
+client.on('guildBanAdd', async (guild, member) => {  // log kanalı ayarlamak
+    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./jsonlar/log.json", "utf8"));
+  
+  const hgK = member.guild.channels.get(gc[member.guild.id].gkanal)
+    if (!hgK) return;
+   const embed = new Discord.RichEmbed()
+            .setTitle('Üye yasaklandı.')
+            .setAuthor(member.user.tag, member.user.avatarURL)
+            .setColor('RED')
+            .setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
+            .setThumbnail(member.user.avatarURL)
+            .setFooter(`Coder's Log Sistemi | ID: ${member.user.id}`)
+            .setTimestamp();
+            hgK.send({embed});
+
+        
     })
-client.on("guildMemberRemove", async member => {
-         let anan = member.user.avatarURL || member.user.defaultAvatarURL
-    let memberChannel = await db.fetch(`memberChannel_${member.guild.id}`)
-    if (!member.guild.channels.get(memberChannel)) return console.log('memberChannel')
-        let username = member.user.username;
-        if (member.guild.channels.get(memberChannel) === undefined || member.guild.channels.get(memberChannel) === null) return;
-        if (member.guild.channels.get(memberChannel).type === "text") {
-            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184546477572107/guildRemove.png");
-            const userimg = await Jimp.read(anan);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
-              setTimeout(function () {
-                    member.guild.channels.get(memberChannel).send(new Discord.Attachment("./img/"+ member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./img/" + member.id + ".png");
-              }, 10000);
-        }
+    
+client.on('guildBanRemove', async (guild, member) => {
+            const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./jsonlar/log.json", "utf8"));
+  
+  const hgK = member.guild.channels.get(gc[member.guild.id].gkanal)
+    if (!hgK) return;
+            var embed = new Discord.RichEmbed()
+            .setTitle('Üyenin yasaklaması kaldırıldı.')
+            .setAuthor(member.user.tag, member.user.avatarURL)
+            .setColor('BLUE')
+            .setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
+            .setThumbnail(member.user.avatarURL)
+            .setFooter(`Coder's Log Sistemi | ID: ${member.user.id}`)
+            .setTimestamp();
+            hgK.send({embed});
+        
+    })
+    
+client.on('messageDelete', async msg => {
+        if (!msg.guild) return;
+    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./jsonlar/log.json", "utf8"));
+  
+  const hgK = msg.guild.channels.get(gc[msg.guild.id].gkanal)
+    if (!hgK) return;
+            var embed = new Discord.RichEmbed()
+            .setAuthor(msg.author.tag, msg.author.avatarURL)
+            .setColor('RED')
+            .setDescription(`<@!${msg.author.id}> tarafından <#${msg.channel.id}> kanalına gönderilen "${msg.content}" mesajı silindi.`)
+            .setFooter(`Coder's Log Sistemi | ID: ${msg.id}`)
+            hgK.send({embed});
+        
+    })
+
+client.on('channelCreate', async channel => {
+        if (!channel.guild) return;
+    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./jsonlar/log.json", "utf8"));
+  
+  const hgK = channel.guild.channels.get(gc[channel.guild.id].gkanal)
+    if (!hgK) return;
+        
+            if (channel.type === "text") {
+                var embed = new Discord.RichEmbed()
+                .setColor('BLUE')
+                .setAuthor(channel.guild.name, channel.guild.iconURL)
+                .setDescription(`<#${channel.id}> kanalı oluşturuldu. _(metin kanalı)_`)
+                .setFooter(`Coder's Log Sistemi | ID: ${channel.id}`)
+                hgK.send({embed});
+            };
+            if (channel.type === "voice") {
+                var embed = new Discord.RichEmbed()
+                    .setColor('BLUE')
+                .setAuthor(channel.guild.name, channel.guild.iconURL)
+                .setDescription(`${channel.name} kanalı oluşturuldu. _(sesli kanal)_`)
+                .setFooter(`Coder's Log Sistemi | ID: ${channel.id}`)
+                hgK.send({embed});
+            }
+        
     })
