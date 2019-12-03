@@ -7,7 +7,7 @@ exports.run = (bot, message, args, tools) => {
     let split = '|';
 
     if(!args[0]) {
-        return message.channel.send("**Duyuru Yapabilmen İçin Bir Mesaj Belirtmen Gerek.** `g!duyuru <mesajınız>`");
+        return message.channel.send("**Duyuru Yapabilmen İçin Bir Mesaj Belirtmen Gerek.** `!duyuru <mesajınız>`");
     }
 
     args = args.join(' ').split(split);
@@ -19,7 +19,7 @@ exports.run = (bot, message, args, tools) => {
     let option = {
         title: args[0] || 'Duyuru Sistemi',
         embedColor: args[2] || 0xffffff,
-        icon: `https://media.discordapp.net/attachments/510927533353598976/602406498856992798/glogo2.png`
+        icon: `https://cdn.discordapp.com/attachments/545569894268272650/651423230753636372/medalbot-notify.png`
     }
 
     const embed = new Discord.RichEmbed()

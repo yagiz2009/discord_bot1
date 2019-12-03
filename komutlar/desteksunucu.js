@@ -7,7 +7,7 @@ exports.run = async (client, message, params, args) => {
 
   const yardım = new Discord.RichEmbed()
   .setColor(0x36393E)
-      .setAuthor(`HAN Bot`, client.user.avatarURL)
+      .setAuthor(`iBot`, client.user.avatarURL)
       .setThumbnail(client.user.avatarURL)
       .addField("Linkler", `Destek Sunucusu [TIKLA](https://discord.gg/AHe4u4m)`)              
   .setFooter(`${message.author.username} tarafından istendi. |`, message.author.avatarURL)
