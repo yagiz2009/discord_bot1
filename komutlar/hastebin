@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
       .setColor(0xFFF000)
       .setURL(hastLink)
       .addField('Link: ', `${hastLink}`)
-      .setFooter('Gnarge Bot | Hastebin Sistemi')
+      .setFooter('iBot | Hastebin Sistemi')
        return message.author.sendEmbed(hastEmb)
   }).catch(console.error);  
    

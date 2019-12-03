@@ -17,7 +17,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['bot durum', 'i', 'bi', 'istatistikler', 'kullanımlar', 'botdurum', 'bd', 'istatisik', 'stats', 'stat'],
-  permLevel: 0
+  permLevel: 4
 };
 
 exports.help = {
