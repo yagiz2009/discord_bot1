@@ -806,5 +806,3 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   kanal.send(embed);  
 		
 	})
-
-
