@@ -429,7 +429,7 @@ client.on('guildMemberAdd', async member => {
 
 client.on("guildCreate", guild => { // Birisi botu sunucuya attıgında bot özel mesaj atar.
 const tesekkurler = new Discord.RichEmbed()
-.setTitle(`HAN Bot | Bilgilendirme`)
+.setTitle(`iBot | Bilgilendirme`)
 .setTimestamp()
 .setColor("GREEN")
 .setDescription(`Beni Sunucuna Eklediğin İçin Teşekkür Ederim \n Sana En İyi Şekilde Hizmet Edeceğim.\n Eğer Bir Sorunla Karşılaşırsan Destek Sunucuma Gel  https://discord.gg/AHe4u4m \n Komutlarımız için **!yardım** komutunu kullanınız.`)
@@ -593,9 +593,9 @@ client.on("message", async msg => {
                     msg.delete();                   
                     let embed = new Discord.RichEmbed()
                     .setColor(0xffa300)
-                    .setFooter('HAN BOT  -|-  Reklam engellendi.', client.user.avatarURL)
+                    .setFooter('iBot  -|-  Reklam engellendi.', client.user.avatarURL)
                     .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
-                    .setDescription("HAN BOT Reklam sistemi, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
+                    .setDescription("iBot Reklam sistemi, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
                     .addField('Reklamı yapan kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
                     .addField('Engellenen mesaj', msg.content, true)
                     .setTimestamp()                   
@@ -732,7 +732,7 @@ if (!modlogkanal) return;
   .setColor("BLUE")
   .setTitle("MESAJ SİLİNDİ")
 .setDescription(`<@!${message.author.id}> adlı kullanıcı tarafından <#${message.channel.id}> kanalına gönderilen mesaj silindi!\n\nSilinen Mesaj: **${message.content}**`)
-  .setFooter("HAN Bot |  Mod-Log")
+  .setFooter("iBot |  Mod-Log")
   modlogkanal.sendEmbed(embed);
   })
 
@@ -746,7 +746,7 @@ if (!modlogkanal) return;
 
 	.setDescription(`Üye Sunucudan Yasaklandı! \n<@!${message.user.id}>, ${message.user.tag}`)
 		.setThumbnail(message.user.avatarURL)
-  .setFooter("Techno code mod-log")
+  .setFooter("iBot | mod-log")
   modlogkanal.sendEmbed(embed);
   })
 client.on('channelCreate', async channel  => {
@@ -757,7 +757,7 @@ if (!modlogkanal) return;
 				let embed = new Discord.RichEmbed()
 					.setColor('RANDOM')
 				.setDescription(`${channel.name} adlı metin kanalı oluşturuldu.`)
-				.setFooter(`HAN Bot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`iBot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -765,7 +765,7 @@ if (!modlogkanal) return;
 				.setColor('RANDOM')
 .setTitle("SES KANALI OLUŞTURULDU")
 				.setDescription(`${channel.name} adlı ses kanalı oluşturuldu!`)
-				.setFooter(`HAN Bot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`iBot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 
 				modlogkanal.send({embed});
 			}
@@ -779,7 +779,7 @@ if (!modlogkanal) return;
 				let embed = new Discord.RichEmbed()
 					.setColor('RANDOM')
 				.setDescription(`${channel.name} adlı metin kanalı silini!`)
-				.setFooter(`HAN Bot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`iBot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -787,7 +787,7 @@ if (!modlogkanal) return;
 				.setColor('RANDOM')
 .setTitle("SES KANALI SİLİNDİ")
 				.setDescription(`${channel.name} adlı ses kanalı silindi`)
-			.setFooter(`HAN Bot | Mod-Log Sistemi  Kanal ID: ${channel.id}`)
+			.setFooter(`iBot | Mod-Log Sistemi  Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			}
 	})
