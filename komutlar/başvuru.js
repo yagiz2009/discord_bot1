@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   let terfiler = guild.channels.find('name', 'yetki-başvurusu');
   if (!terfiler) return message.reply('`yetki-başvurusu` kanalını bulamıyorum.');
   let user = message.mentions.users.first();
-  if (reason.length < 1) return message.reply('Ne Kazandirirsiniz,Istediniz Yetki,Kac Saat Aktif Olacaginiz,Adiniz,Yasiniz ve Kendinizi Etiketleyin.');
+  if (reason.length < 1) return message.reply('Yöneticilerin belirtiği şartları yazınız. ve Kendinizi etiketleyiniz.');
   if (message.mentions.users.size < 1) return message.reply('Isminizi Etiketleyin.').catch(console.error);
   const embed = new Discord.RichEmbed()
     .setColor(0xD97634)
