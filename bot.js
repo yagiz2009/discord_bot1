@@ -806,3 +806,14 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   kanal.send(embed);  
 		
 	})
+
+var sak = ["sa","selamun aleyküm","slm","s.a","naber","hg"]
+client.on("message", message => {
+  db.fetch(`gold_${message.author.id}`).then(i => {
+  if(!i) return;
+var emir = new Discord.RichEmbed()
+.setColor("RANDOM")   
+.setAuthor("Gold Üye Belirdi", client.user.avatarURL)
+.setDescription(`Uzaklarda bir gold üye belirdi! <@${message.member.id}>` )
+  if(sak.some(a => message.content.toLowerCase() === a)) return message.channel.send(emir)
+})})
