@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
       .setColor("BLACK")
       .setTitle("Kanal Koruma sistemi!")
       .setDescription(
-        "Hatalı kullanım! örnek: ${prefix}kanal-koruma aç && kapat"
+        "Hatalı kullanım! örnek: !kanal-koruma aç && kapat"
       );
 
     message.channel.send(embed);
