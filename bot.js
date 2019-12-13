@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 const db = require('quick.db');
 const ms = require('parse-ms')
+const Canvas = require('canvas')
 const moment = require('moment');
 require('./util/eventLoader')(client);
 
