@@ -2,7 +2,7 @@ dependencies:
   array-sort: 1.0.0
   bad-words: 3.0.3
   body-parser: 1.19.0
-  canvas: 2.6.0
+  canvas: 2.6.1
   canvas-constructor: 3.1.0
   canvas-node: 0.3.23
   chalk: 2.4.2
@@ -803,6 +803,17 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-bEO9f1ThmbknLPxCa8Es7obPlN9W3stB1bo7njlhOFKIdUTldeTqXCh9YclCPAi2pSQs84XA0jq/QEZXSzgyMw==
+  /canvas/2.6.1:
+    dependencies:
+      nan: 2.14.0
+      node-pre-gyp: 0.11.0
+      simple-get: 3.1.0
+    dev: false
+    engines:
+      node: '>=6'
+    requiresBuild: true
+    resolution:
+      integrity: sha512-S98rKsPcuhfTcYbtF53UIJhcbgIAK533d1kJKMwsMwAIFgfd58MOyxRud3kktlzWiEkFliaJtvyZCBtud/XVEA==
   /capture-stack-trace/1.0.1:
     dev: false
     engines:
@@ -2820,7 +2831,7 @@ packages:
       mkdirp: 0.5.1
       needle: 2.4.0
       nopt: 4.0.1
-      npm-packlist: 1.4.6
+      npm-packlist: 1.4.7
       npmlog: 4.1.2
       rc: 1.2.8
       rimraf: 2.7.1
@@ -2869,10 +2880,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-D6MUW4K/VzoJ4rJ01JFKxDrtY1v9wrgzCX5f2qj/lzH1m/lW6MhUZFKerVsnyjOhOsYzI9Kqqak+10l4LvLpMw==
-  /npm-bundled/1.0.6:
+  /npm-bundled/1.1.1:
+    dependencies:
+      npm-normalize-package-bin: 1.0.1
     dev: false
     resolution:
-      integrity: sha512-8/JCaftHwbd//k6y2rEWp6k1wxVfpFzB6t1p825+cUb7Ym2XQfhwIC5KwhrvzZRJu+LtDE585zVaS32+CGtf0g==
+      integrity: sha512-gqkfgGePhTpAEgUsGEgcq1rqPXA+tv/aVBlgEzfXwA1yiUJF7xtEt3CtVwOjNYQOVknDk0F20w58Fnm3EtG0fA==
   /npm-cli-path/3.1.2:
     dependencies:
       executing-npm-path: 1.0.0
@@ -2881,13 +2894,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JdiFz8kpCf9WD01zRx5u29EP5UYjKp9osSVMflPkamlplgsuaagkwqY3JpzDySl/VDpGUva8q8YoSG6AatFkIg==
-  /npm-packlist/1.4.6:
-    dependencies:
-      ignore-walk: 3.0.3
-      npm-bundled: 1.0.6
+  /npm-normalize-package-bin/1.0.1:
     dev: false
     resolution:
-      integrity: sha512-u65uQdb+qwtGvEJh/DgQgW1Xg7sqeNbmxYyrvlNznaVTjV3E5P6F/EFjM+BVHXl7JJlsdG8A64M0XI8FI/IOlg==
+      integrity: sha512-EPfafl6JL5/rU+ot6P3gRSCpPDW5VmIzX959Ob1+ySFUuuYHWHekXpwdUZcKP5C+DS4GEtdJluwBjnsNDl+fSA==
+  /npm-packlist/1.4.7:
+    dependencies:
+      ignore-walk: 3.0.3
+      npm-bundled: 1.1.1
+    dev: false
+    resolution:
+      integrity: sha512-vAj7dIkp5NhieaGZxBJB8fF4R0078rqsmhJcAfXZ6O7JJhjhPK96n5Ry1oZcfLXgfun0GWTZPOxaEyqv8GBykQ==
   /npm/6.13.0:
     bundledDependencies:
       - abbrev
@@ -4588,7 +4605,7 @@ specifiers:
   array-sort: ^1.0.0
   bad-words: ^3.0.2
   body-parser: ^1.18.3
-  canvas: ^2.4.1
+  canvas: ^2.6.1
   canvas-constructor: ^3.0.0
   canvas-node: ^0.3.23
   chalk: ^2.4.1

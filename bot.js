@@ -737,3 +737,15 @@ client.on("messageUpdate", async (oldMsg, newMsg) => {
   kanal.send(embed);  
 		
 	})
+
+client.on('message', async message => {
+    if (message.content === 'fakegiriş') {
+        client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(message.author));
+    }
+});
+
+client.on('message', async message => {
+    if (message.content === 'fakeçıkış') {
+        client.emit('guildMemberRemove', message.member || await message.guild.fetchMember(message.author));
+    }
+});
