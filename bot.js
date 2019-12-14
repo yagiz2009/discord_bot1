@@ -6,6 +6,7 @@ const fs = require('fs');
 const db = require('quick.db');
 const ms = require('parse-ms')
 const Canvas = require('canvas')
+const instagram = require("user-instagram");
 const moment = require('moment');
 require('./util/eventLoader')(client);
 
