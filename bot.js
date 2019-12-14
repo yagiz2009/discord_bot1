@@ -817,7 +817,7 @@ client.on("message", async message => {
               message.member.user.username +
                 "** Yeni Seviyesi **" +
                 rollvl +
-                "**  ulaştı ve " +
+                "**  seviyeye ulaştı ve " +
                 seviyerol +
                 " Rolünü kazandı! :tada: **"
             );
