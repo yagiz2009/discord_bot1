@@ -5,10 +5,10 @@ exports.run = (client, message, args) => {
   
     const juke = new Discord.RichEmbed()
     .setColor('GOLD')
-    .setAuthor(`iBOT | Eğlence Komutları`, client.user.avatarURL) 
+    .setAuthor(`iBOT | Kullanıcı Komutları`, client.user.avatarURL) 
       .setDescription('**[Website](https://ibots.glitch.me)**')
 .setThumbnail(client.user.avatarURL)
-      .addField('**Komutlar:**', '`espri`, `rip`, `kralol`, `1vs1`, `kaç-cm`, `wasted`, `yazı-tura`, `doğrulukcesaret`, `alkış`, `dcdekiyıkık`, `tutuklandın`, `tkm`, `sigarayak`, `aşkölçer`, `mesajdöndür`, `balıktut`')
+      .addField('**Komutlar:**', '`havadurumu`, `mc-ödül`, `rastgeleşifre`, `ilginçbilgi`, `burç`, `tekerleme`, `davetoluştur`, `emojiyükle`, `ping`, `avatar`, `kullanıcı-bilgi`, `beşiktaş`, `fenerbahçe`, `galatasaray`, `spotify`, `youtube`')
     .setFooter(``, client.user.avatarURL)
     .setTimestamp()
     message.channel.send(juke).catch()
@@ -23,7 +23,7 @@ exports.conf = {
 };
 
 exports.help = {
-    name: 'eğlence',
+    name: 'kullanıcı',
       category: 'Yardım',
       description: 'Yardım kategorilerini gösteir.',
 };
