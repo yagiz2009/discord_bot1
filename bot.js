@@ -749,3 +749,82 @@ client.on('message', async message => {
         client.emit('guildMemberRemove', message.member || await message.guild.fetchMember(message.author));
     }
 });
+
+/// LEVEL BOT.JS ///
+
+client.on("message", async message => {
+  let prefix = ayarlar.prefix;
+
+  var id = message.author.id;
+  var gid = message.guild.id;
+
+  let hm = await db.fetch(`seviyeacik_${gid}`);
+  let kanal = await db.fetch(`svlog_${gid}`);
+  let xps = await db.fetch(`verilecekxp_${gid}`);
+  let seviyerol = await db.fetch(`svrol_${gid}`);
+  let rollvl = await db.fetch(`rollevel_${gid}`);
+
+  if (!hm) return;
+  if (message.content.startsWith(prefix)) return;
+  if (message.author.bot) return;
+
+  var xp = await db.fetch(`xp_${id}_${gid}`);
+  var lvl = await db.fetch(`lvl_${id}_${gid}`);
+  var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
+
+  if (!lvl) {
+    //CodEming/Ft.Yasin..
+    if (xps) {
+      db.set(`xp_${id}_${gid}`, xps);
+    }
+    db.set(`xp_${id}_${gid}`, 4);
+    db.set(`lvl_${id}_${gid}`, 1);
+    db.set(`xpToLvl_${id}_${gid}`, 100);
+  } else {
+    if (xps) {
+      db.add(`xp_${id}_${gid}`, xps);
+    }
+    db.add(`xp_${id}_${gid}`, 4);
+
+    if (xp > xpToLvl) {
+      db.add(`lvl_${id}_${gid}`, 1);
+      db.add(
+        `xpToLvl_${id}_${gid}`,
+        (await db.fetch(`lvl_${id}_${gid}`)) * 100
+      );
+      if (kanal) {
+        client.channels
+          .get(kanal.id)
+          .send(
+            message.member.user.username +
+              "** Seviye Atladı! Yeni seviyesi; `" +
+              lvl +
+              "` Tebrikler! :tada: **"
+          );
+
+        //zepo
+      }
+      //zepo
+    }
+
+    if (seviyerol) {
+      if (lvl >= rollvl) {
+        message.guild.member(message.author.id).addRole(seviyerol);
+        if (kanal) {
+          client.channels
+            .get(kanal.id)
+            .send(
+              message.member.user.username +
+                "** Seviyesi **" +
+                rollvl +
+                "** e ulaştı ve " +
+                seviyerol +
+                " Rolünü kazandı! :tada: **"
+            );
+        }
+      }
+    }
+  }
+
+  //ZEPST
+});
