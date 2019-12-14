@@ -97,7 +97,8 @@
     "useful-tools": "^0.2.6",
     "weather-js": "^2.0.0",
     "winston": "^3.2.1",
-    "ytdl-core": "^0.29.0"
+    "ytdl-core": "^0.29.0",
+    "can": "^6.2.8"
   },
   "engines": {
     "node": "8.x"
