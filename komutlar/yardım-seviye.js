@@ -27,7 +27,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'seviyesistemi',
+  name: 'seviye-sistemi',
   description: 'Tüm komutları gösterir.',
   usage: 'yardım'
 };
