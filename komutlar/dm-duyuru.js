@@ -23,7 +23,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'dmduyuru',
+  name: 'dmduyuruuuu',
   description: 'DM Duyuru.',
   usage: 'duyuru'
 };
