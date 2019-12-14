@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const moment = require('moment')
 const client = new Discord.Client();
 
-const botadi = "Tosun Bot"
+const botadi = "iBot"
 
 exports.run = async (bot, msg, args) => {
   //BU KOMUT CODARE SUNUCUSUNDAN YUSUF A AİTTİR!
@@ -85,7 +85,7 @@ exports.run = async (bot, msg, args) => {
         .addField(`Botmu:`, userinfo.bot, true)
         .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Bu kullanıcıda hiçbir rol bulunmuyor**"}`, false)
         .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj, false)
-        .setFooter(`${botadi} || Kullanıcı Sistemi`)
+        .setFooter(`${botadi} || Kullanıcı Bilgi Sistemi`)
         msg.channel.send(uembed)
     }
 //BU KOMUT CODARE SUNUCUSUNDAN YUSUF A AİTTİR!
