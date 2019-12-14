@@ -20,7 +20,7 @@ module.exports = async member => {
   const canvas = Canvas.createCanvas(360, 240);
   const ctx = canvas.getContext('2d');
   
-  const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/573582370310062091/626167776754663474/giris.png');
+  const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/652519207002439691/655312936692350987/g4iris.jpg');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
   ctx.strokeStyle = '#74037b';
