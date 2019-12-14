@@ -16,7 +16,6 @@ dependencies:
   dateformat: 3.0.3
   db: 1.1.1
   dblapi.js: 2.3.0
-  discord-anti-spam-tr: 0.5.9
   discord-bots-api: 0.0.2
   discord-eco: 0.0.10
   discord.js: 11.5.1
@@ -1303,10 +1302,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8wn1PmdunLJ9Tqbx+Fx/ZEuHfJf4NKSN2ZBj7SJC/OWRWha843+WsTjqMe1B5E3p28jqBlp+mJ2fPVxPyNgYKQ==
-  /discord-anti-spam-tr/0.5.9:
-    dev: false
-    resolution:
-      integrity: sha512-lq4Jv0iKB384bOnxxjCvZ5HS8mie4z2KzmFVVxKiguiN0KFFVOU+1FZmmGlXhK9CPhOWWcXAjuCyGm6rMVTF4w==
   /discord-bots-api/0.0.2:
     dependencies:
       request: 2.88.0
@@ -4619,7 +4614,6 @@ specifiers:
   dateformat: ^3.0.3
   db: ^1.1.1
   dblapi.js: ^2.3.0
-  discord-anti-spam-tr: ^0.5.6
   discord-bots-api: ^0.0.2
   discord-eco: ^0.0.10
   discord.js: ^11.4.2
@@ -4667,7 +4661,7 @@ specifiers:
   passport-strategy: ^1.0.0
   path: ^0.12.7
   pokedex-api: ^1.1.2
-  quick.db: ^7.0.0b22
+  quick.db: ^7.0.0-b22
   random-puppy: ^1.1.0
   randomstring: ^1.1.5
   request: ^2.88.0
