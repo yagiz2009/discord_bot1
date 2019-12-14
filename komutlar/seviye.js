@@ -9,7 +9,7 @@ exports.run = async(client, message, args) => {
   let rollvl = await db.fetch(`rollevel_${message.guild.id}`)
   let kxp = await db.fetch(`xp_${message.author.id}_${message.guild.id}`)
   let klvl = await db.fetch(`lvl_${message.author.id}_${message.guild.id}`)
-  if(!hm) return message.channel.send('Seviye komutları aktif değil! \n `!seviye-aç`')
+  if(!hm) return message.channel.send('Seviye komutları aktif değil! \n `!seviye-aç !seviye-rol !seviye-log !seviye-xp !seviye-ayarlar !seviye-kapat`')
   var user = message.mentions.users.first() || message.author;
   
   let kontrol;
@@ -26,7 +26,7 @@ exports.run = async(client, message, args) => {
   .addField('Kullanıcı:', user, true)
   .addField('Kullanıcı XP değeri:', '**'+kontrol+'**', true)
   .addField('Kullanıcı Seviye Değeri:', '**'+kontrol2+'**', true)
-  .setFooter('EndlessLove Seviye Sistemi!')
+  .setFooter('iBOT Seviye Sistemi!')
   .setColor('RANDOM')
   .setTimestamp()
   .setThumbnail(user.avatarURL)

@@ -37,11 +37,11 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kontrol, true)
   .addField('Mesaj Başı Verilecek XP:', kontrol2, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('EndlessLove Seviye Sistemi!')
+  .setFooter('iBOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(codeming)
  
-message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından aktifleştirildi!\n `EndlessLove Seviye Sistemi`')
+message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından aktifleştirildi!\n `iBOT Seviye Sistemi`')
   
   
 db.set(`seviyeacik_${message.guild.id}`, 'açık')

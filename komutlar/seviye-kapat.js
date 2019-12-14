@@ -20,7 +20,7 @@ exports.run = async(client, message, args) => {
   db.delete(`svrol_${message.guild.id}`)
   db.delete(`rollevel_${message.guild.id}`)    
   
-  x.edit('sistem devre dışı bırakıldı!')  
+  x.edit('sistem devre dışı bırakıldı! Tekrar açmak için **!seviye-aç**')  
     
   }, 5000)
   

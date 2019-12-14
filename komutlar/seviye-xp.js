@@ -34,12 +34,12 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kontrol, true)
   .addField('Mesaj Başı Verilecek XP:', değer, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('EndlessLove Seviye Sistemi!')
+  .setFooter('iBOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(selin)
   
   db.set(`verilecekxp_${message.guild.id}`, değer)
-  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından mesaj başına verilecek xp **'+değer+'** olarak ayarlandı!\n `EndlessLove Seviye Sistemi`')
+  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından mesaj başına verilecek xp **'+değer+'** olarak ayarlandı!\n `iBOT Seviye Sistemi`')
 
 
   };

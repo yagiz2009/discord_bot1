@@ -9,9 +9,9 @@ exports.run = async(client, message, args) => {
   let hm = await db.fetch(`seviyeacik_${message.guild.id}`)
     let seviyerol = await db.fetch(`svrol_${message.guild.id}`)
   let rollvl = await db.fetch(`rollevel_${message.guild.id}`)
-   if(!hm) return message.reply('Bu tuhaf! aktif edilmeyen bir seviye sistemine xp değeri eklemeyi düşünmedin umarım? \n Bunu Deniyebilirsin: `$seviye-aç`')
+   if(!hm) return message.reply('Bu tuhaf! aktif edilmeyen bir seviye sistemine xp değeri eklemeyi düşünmedin umarım? \n Bunu Deniyebilirsin: `!seviye-aç`')
   let kanals = message.mentions.channels.first()
-  if(!kanals) return message.channel.send('Kanal ayarlamam için bir kanal belirtmen gerekiyor. |n Örnek: `$seviye-kanal #level-log`')
+  if(!kanals) return message.channel.send('Kanal ayarlamam için bir kanal belirtmen gerekiyor. |n Örnek: `!seviye-log #level-log`')
   
     let kontrol2;
   if(xp == null) kontrol2 = '4 (Varsayılan)'
@@ -29,11 +29,11 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kanals, true)
   .addField('Mesaj Başı Verilecek XP:', kontrol2, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('EndlessLove Seviye Sistemi!')
+  .setFooter('iBOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(codeming)
   
-  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından logs kanalı **'+kanals+'** Olarak ayarlandı.!\n `Endlesslove Seviye Sistemi`')
+  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından logs kanalı **'+kanals+'** Olarak ayarlandı.!\n `iBOT Seviye Sistemi`')
   db.set(`svlog_${message.guild.id}`, kanals)
 
   };

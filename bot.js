@@ -815,9 +815,9 @@ client.on("message", async message => {
             .get(kanal.id)
             .send(
               message.member.user.username +
-                "** Seviyesi **" +
+                "** Yeni Seviyesi **" +
                 rollvl +
-                "** e ulaştı ve " +
+                "**  ulaştı ve " +
                 seviyerol +
                 " Rolünü kazandı! :tada: **"
             );
