@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     .setAuthor(`iBOT | Kullanıcı Komutları`, client.user.avatarURL) 
       .setDescription('**[Website](https://ibots.glitch.me)**')
 .setThumbnail(client.user.avatarURL)
-      .addField('**Komutlar:**', '`havadurumu`, `mc-ödül`, `rastgeleşifre`, `ilginçbilgi`, `burç`, `tekerleme`, `davetoluştur`, `emojiyükle`, `ping`, `avatar`, `kullanıcı-bilgi`, `beşiktaş`, `fenerbahçe`, `galatasaray`, `spotify`, `youtube`')
+      .addField('**Komutlar:**', '`havadurumu`, `instagram`, `rastgeleşifre`, `ilginçbilgi`, `burç`, `tekerleme`, `davetoluştur`, `emojiyükle`, `ping`, `avatar`, `kullanıcı-bilgi`, `beşiktaş`, `fenerbahçe`, `galatasaray`, `spotify`, `youtube`')
     .setFooter(``, client.user.avatarURL)
     .setTimestamp()
     message.channel.send(juke).catch()

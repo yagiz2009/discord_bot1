@@ -7,7 +7,7 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
-        "!yardım, !desteksunucu, !rol-koruma, !kanal-koruma, !unbanall",
+        "!yardım, !instagram, !serverpanel",
     ];
 
     setInterval(function() {
