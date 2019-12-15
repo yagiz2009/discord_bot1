@@ -886,14 +886,3 @@ message.guild.createChannel(`Rekor Online • Bakımda!`, 'voice')
     
 }
 });
-
-var sak = ["sa", "merhaba", "ben geldim"]; // gold üye
-client.on("message", message => {
-  db.fetch(`gold_${message.author.id}`).then(i => {
-    if (!i) return;
-    if (sak.some(s => message.content.toLowerCase() === s))
-      return message.channel.send(
-        `:diamond_shape_with_a_dot_inside: \`${message.author.username}\` Gold Üye Geldi Dağılın! :diamond_shape_with_a_dot_inside: `
-      );
-  });
-});
