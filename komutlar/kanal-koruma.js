@@ -1,60 +1,46 @@
-const db = require("quick.db");
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const db = require('quick.db')
+const a = require('../ayarlar.json')
 
-exports.run = async (client, message, args) => {
-  let prefix = await require('quick.db').fetch(`prefix_${message.guild.id}`) || '!'
- 
+exports.run = async (client, message,args) => {
+let kanalkorumadb = await db.fetch(`kanalkoruma${message.guild.id}`)
 
-  if (!args[0]) {
-    const embed = new Discord.RichEmbed()
-      .setColor("BLACK")
-      .setTitle("Kanal Koruma sistemi!")
-      .setDescription(
-        "Hatalı kullanım! örnek: !kanal-koruma aç && kapat"
-      );
 
-    message.channel.send(embed);
-    return;
+const cfxkoruma = new Discord.RichEmbed()
+.setColor("#00ff88")
+.setTitle(`**\`Kanal Koruma Bilgi;\`**`)
+.setDescription(`** ** \n**Açmak İçin:** \`${a.prefix}\`kanalkoruma aç\n\n **Kapatmak İçin:** \`${a.prefix}kanalkoruma kapat\``)
+.setFooter(`CodeFENIX| Kanal Koruma Sistemi.`, client.user.avatarURL)
+
+
+if (!args[0]) return message.channel.send(cfxkoruma);
+if (args[0] == 'aç') {
+if (kanalkorumadb === 'Açık') {
+message.channel.send('Kanal Koruması Zaten Aktif!')
+return;
+} 
+else {
+    db.set(`kanalkoruma${message.guild.id}`, 'Açık')
+     message.channel.send('Kanal Koruması başarıyla açıldı!')
+}
   }
-  let kanal = await db.fetch(`kanalk_${message.guild.id}`)
-  if (args[0] == "aç") {
-    if (kanal) {
-      const embed = new Discord.RichEmbed()
-        .setColor("BLACK")
-        .setTitle("kanal Koruma sistemi!")
-        .setDescription("Görünüşe göre kanal koruma zaten aktif!");
-
-      message.channel.send(embed);
-      return;
-    } else {
-      db.set(`kanalk_${message.guild.id}`, "acik");
-      const embed = new Discord.RichEmbed()
-        .setColor("BLACK")
-        .setTitle("kanal Koruma sistemi!")
-        .setDescription("kanal koruma başarıyla açıldı!");
-
-      message.channel.send(embed);
-    }
-  } else if (args[0] == "kapat") {
-    db.delete(`kanalk_${message.guild.id}`);
-    const embed = new Discord.RichEmbed()
-      .setColor("BLACK")
-      .setTitle("kanal Koruma sistemi!")
-      .setDescription("kanal Koruma başarıyla kapandı!");
-
-    message.channel.send(embed);
+  else if (args[0] == 'kapat') {
+    db.delete(`kanalkoruma${message.guild.id}`, 'Kapalı')
+      message.channel.send('Kanal Koruması başarıyla kapatıldı!')
   }
-};
-exports.conf = {
+
+
+}
+
+module.exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: ["kanal-k"],
-  permLevel: 2,
-  kategori: "sunucu"
+  guildOnly: false,
+  aliases: [],
+  permLevel: 4
 };
 
-exports.help = {
-  name: "kanal-koruma",
-  description: "kanal koruma",
-  usage: "kanal-koruma"
+module.exports.help = {
+  name: 'kanalkoruma',
+  description: 'CODEFENIX KOD PAYLASIM',
+  usage: 'kanalkoruma'
 };
