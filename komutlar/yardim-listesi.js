@@ -1,30 +1,38 @@
 const Discord = require('discord.js');
+const loglar = require('../loglar.json');
 
+var prefix = loglar.prefix;
 
-exports.run = function(client, message) {
-const embed = new Discord.RichEmbed()
-.setColor('Blue')
-.setTitle('iBOT | Yardım Komutları')
-.setTimestamp()
-.addField('**!yetkili**','Sunucuyu yönetmek için gerekli olan komutlar!')
-.addField('**!eğlence**','Eğlenmek için bulunan komutlar!')
-.addField('**!kullanıcı**','Kullanıcılar için komutlar.')
-.addField('**!bot**','Bot ile alakalı komutları görürsünüz.')
-.setFooter('iBOT | Yardım Komutları')
-.setTimestamp()
-.setThumbnail(client.user.avatarURL)
-message.channel.send(embed)
+exports.run = (client, message, params) => {
+  const embedyardim = new Discord.RichEmbed()
+  .setTitle("Komut Listesi")
+  .setDescription('')
+  .setColor(0x00ffff)
+      .setDescription('**•** **!yardım** Sunucuyu yönetmek için gerekli olan komutlar.\n**•** **!eğlence** Eğlenmek için bulunan komutlar.\n**•** **!kullanıcı** Kullanıcılar için komutlar.\n**•** **!bot** Bot ile alakalı komutları görürsünüz.')
+      .addField("» Linkler", `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=650739604789395476&scope=bot&permissions=805314622)` + "**\n**"+`[Bota Oyver](https://botsfordiscord.com/bot/650739604789395476/vote)`+ "**\n**"+`[Destek Sunucusu](https://discord.gg/AHe4u4m)`, false)
+      .setFooter('iBOT | Yardım Komutları')
+
+  if (!params[0]) {
+    const commandNames = Array.from(client.commands.keys());
+    message.channel.send(embedyardim);
+  } else {
+    let command = params[0];
+    if (client.commands.has(command)) {
+      command = client.commands.get(command);
+      message.author.send('asciidoc', `= ${command.help.name} = \n${command.help.description}\nDoğru kullanım: ` + prefix + `${command.help.usage}`);
+    }
+  }
 };
 
 exports.conf = {
   enabled: true,
-  guildOnly: false, 
-  aliases: [], 
-  permLevel: 0 
+  guildOnly: false,
+  aliases: ['help'],
+  permLevel: 0
 };
 
 exports.help = {
   name: 'yardım',
   description: 'Tüm komutları gösterir.',
-  usage: 'yardım'
+  usage: 'yetkili '
 };
