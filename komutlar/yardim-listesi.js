@@ -8,7 +8,7 @@ exports.run = (client, message, params) => {
   .setTitle("Komut Listesi")
   .setDescription('')
   .setColor(0x00ffff)
-      .setDescription('**•** **!yardım** Sunucuyu yönetmek için gerekli olan komutlar.\n**•** **!eğlence** Eğlenmek için bulunan komutlar.\n**•** **!kullanıcı** Kullanıcılar için komutlar.\n**•** **!bot** Bot ile alakalı komutları görürsünüz.')
+      .setDescription('**•** **!yetkili** Sunucuyu yönetmek için gerekli olan komutlar.\n**•** **!eğlence** Eğlenmek için bulunan komutlar.\n**•** **!kullanıcı** Kullanıcılar için komutlar.\n**•** **!bot** Bot ile alakalı komutları görürsünüz.')
       .addField("» Linkler", `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=650739604789395476&scope=bot&permissions=805314622)` + "**\n**"+`[Bota Oyver](https://botsfordiscord.com/bot/650739604789395476/vote)`+ "**\n**"+`[Destek Sunucusu](https://discord.gg/AHe4u4m)`, false)
       .setFooter('iBOT | Yardım Komutları')
 
