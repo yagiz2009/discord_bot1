@@ -864,11 +864,8 @@ message.guild.createChannel(`Rekor Online • Bakımda!`, 'voice')
 }
 });
 
-const invites = {};
 
-const wait = require('util').promisify(setTimeout);
-
-client.on('ready', () => {
+client.on('ready', () => { // davet takip
 
   wait(1000);
 
