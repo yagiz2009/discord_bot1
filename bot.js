@@ -911,3 +911,34 @@ client.on("guildMemberRemove", async member => {
        db.subtract(`davet_${invite.inviter.id + member.guild.id}`,1)
     })
 })
+
+client.login(ayarlar.token);
+client.on("message", async message =>{
+const request = require('node-superfetch');     
+let gold = await db.fetch(`gold_${message.member.id}`)
+let dakdest = await db.fetch(`goldsure_${message.member.id}`);
+let timeout = 120000 //1000 = 1 saniye
+const ms = require('parse-ms')
+  if(gold == 'acik'){
+        if (dakdest !== null && timeout - (Date.now() - dakdest) > 0) {
+        let time = ms(timeout - (Date.now() - dakdest));
+    } else {
+      if(message.member.bot) return;   
+  if (message.content.length > 1){ 
+    db.set(`goldsure_${message.author.id}`, Date.now());
+         const embed = new Discord.RichEmbed()
+         .setColor('BLACK')
+         .setTitle('Gold Üye!')
+         .setDescription('<a:krst:627824669201793024> **Bir gold üye belirdi!**')
+
+         message.channel.send(embed)
+    }
+    };
+
+       
+     
+     }
+     else{
+       return
+     } 
+});
