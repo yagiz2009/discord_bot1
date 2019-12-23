@@ -1,10 +1,7 @@
-Bot Altyapı Projesine Hoşgeldin!
-=================
- Bu Dosya Tamamen `zMorcy'ye Aittir`. Bot Altyapısını Sizlerin Kullanması İçin Verdik Gerekli Modüller Yüklüdür..!
 
-[Resmi Discord Sunucumuz](https://discord.gg/kQJQJgr)
+zMorcy#4249 'a aittir.'
 
-[Resmi Youtube Kanalımız](https://www.youtube.com)
+[Resmi Youtube Kanalımız](https://www.youtube.com/zMorcy)
 
 
 -------------------
