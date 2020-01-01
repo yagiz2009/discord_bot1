@@ -21,16 +21,6 @@ exports.run = async (client, message, args) => {
     }
 
     if (istek === "gold") {
-      if (gold == "kapali") {
-        const embed = new Discord.RichEmbed()
-          .setColor("BLACK")
-          .setTimestamp();
-        message.channel.send({ embed });
-      } else if (many < 3000) {
-        message.channel.send(
-          `Ne yazık ki yeterli puana sahip değilsin!`
-        );
-        return
       } else if (many > 3000) {
         message.channel.send(`Artık goldsun!`);
         db.set(`many{message.member.id}`, -3000);
