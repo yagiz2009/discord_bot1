@@ -31,5 +31,5 @@ exports.conf = {
 exports.help = {
     name: 'modlogayarla',
     description: 'TECHNO CODE SUNUCUSUNA AİTTİR! LÜTFEN İZİNSİZ PAYLAŞMAYIN.',
-    usage: '/modlog <#kanal>'
+    usage: '!modlog <#kanal>'
 }
