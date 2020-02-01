@@ -438,7 +438,7 @@ client.on("roleCreate", async (rolee, member, guild) => {
 });
 
 client.on("guildCreate", guild => {  // sunucuya eklendim ve atıldım
-let add = client.channels.get("672394301791272990")
+let add = client.channels.get("673134347683102771")
 const eklendim = new Discord.RichEmbed()
 
 .setTitle(`Sunucuya Eklendim`)
@@ -456,7 +456,7 @@ add.send(eklendim)
 });
 
 client.on("guildDelete", guild => {
-let remove = client.channels.get("672394301791272990")
+let remove = client.channels.get("673134347683102771")
 const atildim = new Discord.RichEmbed()
 
 .setTitle(`Sunucudan Atıldım`)
