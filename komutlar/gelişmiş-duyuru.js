@@ -17,7 +17,7 @@ exports.run = (bot, message, args, tools) => {
     if(args[2]) args[2] = parseInt(`0x${args[2]}`);
 
     let option = {
-        title: args[0] || 'Duyuru Sistemi',
+        title: args[0] || 'RTX-BOT Duyuru Sistemi',
         embedColor: args[2] || 0xffffff,
         icon: `https://cdn.discordapp.com/attachments/545569894268272650/651423230753636372/medalbot-notify.png`
     }
