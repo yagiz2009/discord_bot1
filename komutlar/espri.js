@@ -20,6 +20,20 @@ exports.run = (client, message) => {
       "Beni Ayda bir sinemaya götürme, Marsta bir sinemaya götür.",
       "Aaa siz çok terlemişsiniz durun size terlik getireyim.",
       "Aklımı kaçırdım, 100.000 TL fidye istiyorum."
+      "Rock yapmayan kişiye ne denir? -Yaprock "
+      "Ben Yedigün içiyorum sen Onbeşgün iç. :D'
+      "Sinemada on dakika ara dedi, aradım aradım açmadı.'
+      "Yeni yapılmış resimlere ne denir? -Nevresim'
+      "Tebrikler kazandınız, şimdi tencere oldunuz! '
+      "İshal olmuş böceğe ne denir? -Cırcır Böceği'
+      "keklik askere giderse nolur? -Erkeklik'
+      "Bizim CD sürücümüz ehliyeti nerden almış acaba ?! '
+      "Yılanlardan korkma, yılmayanlardan kork.'
+      "Kırmızı giyen erkeğe ne denir? -Albay  '
+      "Ben kahve içiyorum, Nurgül Yeşilçay.""
+      "Bak şu karışıdaki uçak PİSTİ , ama bir türlü temizlemediler.""
+      "Top ağlarda, ben ağlamaz mıyım ?"
+      "Burger King, bende vezir  
     ];
     var espri = espriler[Math.floor(Math.random() * espriler.length)];
     message.edit(`${espri}`);
