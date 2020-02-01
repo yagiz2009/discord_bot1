@@ -29,11 +29,11 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kanals, true)
   .addField('Mesaj Başı Verilecek XP:', kontrol2, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('iBOT Seviye Sistemi!')
+  .setFooter('RTX-BOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(codeming)
   
-  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından logs kanalı **'+kanals+'** Olarak ayarlandı.!\n `iBOT Seviye Sistemi`')
+  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından logs kanalı **'+kanals+'** Olarak ayarlandı.!\n `RTX-BOT Seviye Sistemi`')
   db.set(`svlog_${message.guild.id}`, kanals)
 
   };

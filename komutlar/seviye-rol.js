@@ -32,7 +32,7 @@ exports.run = async(client, message, args) => {
   .addField('Mesaj Başı Verilecek XP:', kontrol2, true)
   .addField('Verilecek Rol:', rol, true)
   .addField('Rolün Verileceği Seviye:', seviye)
-  .setFooter('iBOT Seviye Sistemi!')
+  .setFooter('RTX-BOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(codeming)
   db.set(`svrol_${message.guild.id}`, rol.id)
