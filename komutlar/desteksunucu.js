@@ -9,7 +9,7 @@ exports.run = async (client, message, params, args) => {
   .setColor(0x36393E)
       .setAuthor(`RTX-Bot`, client.user.avatarURL)
       .setThumbnail(client.user.avatarURL)
-      .addField("Linkler", `Destek Sunucusu [TIKLA](https://discord.gg/AHe4u4m)`)              
+      .addField("Linkler", `Destek Sunucusu [TIKLA](https://discord.gg/s5Bd9J7)`)              
   .setFooter(`${message.author.username} tarafından istendi. |`, message.author.avatarURL)
   return message.channel.sendEmbed(yardım);
 
