@@ -39,7 +39,7 @@ exports.run = async(client, message, args) => {
   message.channel.send(selin)
   
   db.set(`verilecekxp_${message.guild.id}`, değer)
-  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından mesaj başına verilecek xp **'+değer+'** olarak ayarlandı!\n `iBOT Seviye Sistemi`')
+  message.guild.owner.send('Seviye sistemi **'+message.member.user.username+'** ('+message.member.id+') tarafından mesaj başına verilecek xp **'+değer+'** olarak ayarlandı!\n `RTX-BOT Seviye Sistemi`')
 
 
   };
