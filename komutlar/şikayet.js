@@ -16,7 +16,7 @@ const embed2 = new Discord.RichEmbed()
 .addField(`Kulanıcı Bilgileri`, `Kullanıcı ID: ${message.author.id}\nKullanıcı Adı: ${message.author.username}\nKullanıcı Tagı: ${message.author.discriminator}`)
 .addField("Şikayet", type)
 .setThumbnail(message.author.avatarURL)
-client.channels.get('649271962178158623').send(embed2); // Kanal ID  BURAYI KESİNLİKLE DÜZENLEYİNİZ!
+client.channels.get('673134275696132117').send(embed2); // Kanal ID  BURAYI KESİNLİKLE DÜZENLEYİNİZ!
 
 };
 
