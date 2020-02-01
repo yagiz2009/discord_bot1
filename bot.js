@@ -666,7 +666,7 @@ if (!modlogkanal) return;
 				let embed = new Discord.RichEmbed()
 					.setColor('RANDOM')
 				.setDescription(`${channel.name} adlı metin kanalı oluşturuldu.`)
-				.setFooter(`iBot | Mod-Log Sistemi Kanal ID: ${channel.id}`)
+				.setFooter(`,RTX-BOT | Mod-Log Sistemi Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -696,7 +696,7 @@ if (!modlogkanal) return;
 				.setColor('RANDOM')
 .setTitle("SES KANALI SİLİNDİ")
 				.setDescription(`${channel.name} adlı ses kanalı silindi`)
-			.setFooter(`iBot | Mod-Log Sistemi  Kanal ID: ${channel.id}`)
+			.setFooter(`RTX-BOT | Mod-Log Sistemi  Kanal ID: ${channel.id}`)
 				modlogkanal.send({embed});
 			}
 	})
