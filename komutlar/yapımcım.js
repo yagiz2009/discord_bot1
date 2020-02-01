@@ -9,7 +9,7 @@ exports.run = (client, message) => {
     .setAuthor(message.author.username, message.author.avatarURL)
     .setColor('RANDOM')
     .setTimestamp()
-    .addField('**Yapımcım: **', ' @Lara Croft.#4181  , @ሯ GATTAR ሯ#5663 ve @Abdulkadir Oğuz#2906')
+    .addField('**Yapımcım: **', '@ሯ GATTAR ሯ#5663 ve @Abdulkadir Oğuz#2906')
     message.channel.sendEmbed(ozelmesajkontrol) }
 };
 
