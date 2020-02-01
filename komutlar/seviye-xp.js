@@ -34,7 +34,7 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kontrol, true)
   .addField('Mesaj Başı Verilecek XP:', değer, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('iBOT Seviye Sistemi!')
+  .setFooter('RTX-BOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(selin)
   
