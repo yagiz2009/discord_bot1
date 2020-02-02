@@ -33,6 +33,6 @@ exports.conf =
 exports.help =
 {
   name: "playstore",
-  description: "",
-  usage: ""
+  description: "playstorede oyun aratmayı sağlar.",
+  usage: "playstore"
 }
