@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
       db.set(`kanalk_${message.guild.id}`, "acik");
       const embed = new Discord.RichEmbed()
         .setColor("BLACK")
-        .setTitle("kanal Koruma sistemi!")
+        .setTitle("RTX-BOT|Kanal Koruma sistemi!")
         .setDescription("kanal koruma başarıyla açıldı!");
 
       message.channel.send(embed);
