@@ -7,22 +7,21 @@ exports.run = (client, msg) => {
   msg.channel.sendCode("asciidoc", `= İSTATİSTİKLER =
 • Bellek kullanımı :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
 • Çalışma süresi   :: ${duration}
-• Kullanıcılar     :: ${3564}
-• Sunucular        :: ${102}
-• Kanallar         :: ${5897}
-• Discord.JS sürüm :: v${Discord.version}
-• Ping             :: ${client.ping}`);
+• Kullanıcılar     :: ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+• Sunucular        :: ${client.guilds.size.toLocaleString()}
+• Kanallar         :: ${client.channels.size.toLocaleString()}
+• Discord.JS sürüm :: v${Discord.version}`);
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['bot durum', 'i', 'bi', 'istatistikler', 'kullanımlar', 'botdurum', 'bd', 'istatisik', 'stats', 'stat'],
-  permLevel: 0
+  permLevel: 4
 };
 
 exports.help = {
   name: 'istatistik',
-  description: 'c',
+  description: 'Botun istatistik gösterir.',
   usage: 'istatistik'
 };
