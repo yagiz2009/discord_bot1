@@ -76,7 +76,7 @@ var filter = m => m.author.id === message.author.id;
                      m.edit('** 🎉 ÇEKİLİŞ BİTTİ 🎉**' , {embed: endEmbed});
                        
                        var embedLel = new Discord.RichEmbed()
-                        .setColor("#f558c9")
+                        .setColor("RANDOM")
                         .setDescription("Ödülünü Moderatörleri Etiketleyerek Alabilirsin!").setFooter("(RTX-Bot çekiliş sistemi)")
                     message.guild.channels.find("name" , room).send(`**Tebrikler ${gFilter}! \`${title}\` kazandın!**` , embedLel)
                 }, ms(duration));
