@@ -29,7 +29,7 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kanals, true)
   .addField('Mesaj Başı Verilecek XP:', kontrol2, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('RTX-BOT Seviye Sistemi!')
+  .setFooter('BlackBlvee Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(codeming)
   

@@ -20,7 +20,7 @@ exports.run = (client, message, params) => {
         `[Destek Sunucusu](https://discord.gg/AHe4u4m)`,
       false
     )
-    .setFooter("iBOT | Yardım Komutları");
+    .setFooter("BlackBlvee | Yardım Komutları");
 
   if (!params[0]) {
     const commandNames = Array.from(client.commands.keys());

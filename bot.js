@@ -269,7 +269,7 @@ client.on('message', async message => {
 
 
 
-       message.guild.owner.send("Gerekli Herşey Kuruldu Rahatına Bak! **HAN  Bot'un kıymetini bil :D**")
+       message.guild.owner.send("Gerekli Herşey Kuruldu Rahatına Bak! **BlackBlvee'un kıymetini bil :D**")
      
             })   
     
@@ -751,7 +751,7 @@ client.on("message", async message => {
   var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
 
   if (!lvl) {
-    //CodEming/Ft.Yasin..
+    //BlackBlvee
     if (xps) {
       db.set(`xp_${id}_${gid}`, xps);
     }
@@ -780,9 +780,9 @@ client.on("message", async message => {
               "` Tebrikler! :tada: **"
           );
 
-        //zepo
+        //BlackBlvee
       }
-      //zepo
+      //BlackBlvee
     }
 
     if (seviyerol) {
@@ -804,7 +804,7 @@ client.on("message", async message => {
     }
   }
 
-  //ZEPST
+  //BlackBlvee
 });
 
 client.on('message', async message => { // bot bilgi paneli üye sayısı bot sayısı falan

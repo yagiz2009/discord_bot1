@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
                 .setAuthor('Spotify Şarkı Bilgisi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2000px-Spotify_logo_without_text.svg.png')
                 .setColor(0xdb954)
                 .setThumbnail(trackImg)
-                .setFooter(`Cabbar BOT Spotify Sistemi ${message.author.username} tarafından istendi.`, "https://cdn.discordapp.com/emojis/515260605347659777.png?v=1")
+                .setFooter(`BlackBlvee Spotify Sistemi ${message.author.username} tarafından istendi.`, "https://cdn.discordapp.com/emojis/515260605347659777.png?v=1")
                 .setDescription(`
 \ **Spotify**'da dinlediği şarkı;  \**${trackName}**\n
 \ **Spotify**'da dinlediği albüm;  \**${trackAlbum}**\n

@@ -30,6 +30,6 @@ exports.conf = {
 
 exports.help = {
     name: 'modlogayarla',
-    description: 'TECHNO CODE SUNUCUSUNA AİTTİR! LÜTFEN İZİNSİZ PAYLAŞMAYIN.',
+    description: 'BlackBlvee',
     usage: '!modlog <#kanal>'
 }

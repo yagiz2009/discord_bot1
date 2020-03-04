@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
     
     .addField("Kelime:", `${args.slice(0).join(' ')}`)
     .addField('Link:', `${link}`)
-.setFooter('RTX-BOT | Google Çeviri Sistemi')    
+.setFooter('BlackBlvee | Google Çeviri Sistemi')    
           
     message.channel.send(embed);
 

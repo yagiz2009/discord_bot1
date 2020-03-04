@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 exports.run = function(client, message) {
  
     const embed = new Discord.RichEmbed()
-        .setDescription("**RTX-BOT**")
+        .setDescription("**BlackBlvee**")
         .setImage("https://resmim.net/f/ckojv8.jpg?nocache")
         .setThumbnail("https://resmim.net/f/ckojv8.jpg?nocache")
         .setColor(0x00AE86)
@@ -25,7 +25,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'RTX-BOT',
-  description: 'RTX-BOT hakkında bilgi verir',
-  usage: 'RTX-BOT'
+  name: 'BlackBlvee',
+  description: 'BlackBlvee hakkında bilgi verir',
+  usage: 'BlackBlvee'
 };

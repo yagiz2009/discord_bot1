@@ -1,7 +1,3 @@
-Merhaba Arkadaşlar Bu Botun Altyapısı Tosun Bot'a Aittir Sizlere Özel Bazı Komutlarıda Eklicem . Komutlar Tosun Bot'a Aittir Fakat Kullanabilirsiniz.
+#BLACKBLVEE = Mehmet Şahin Discord Botu Altyapısı
 
-Youtube Abone Ol : https://www.youtube.com/
-
-Discord Kod Paylaşım Sunucumuz : https://discord.gg/NG8qEX3
-
-İyi Günlerr
+YOUTUBE: BlackBlvee!
