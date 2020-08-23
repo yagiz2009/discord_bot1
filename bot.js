@@ -8,7 +8,7 @@ const ms = require('parse-ms')
 const Canvas = require('canvas')
 const instagram = require("user-instagram");
 const moment = require('moment');
-require('./util/eventLoader')(client);
+require('./util/eventLoader')(Client);
 
 var prefix = ayarlar.prefix;
 
