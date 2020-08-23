@@ -24,19 +24,19 @@ exports.run = async (client, msg, args) => {
      let member = msg.mentions.members.first()
    if(!member)return msg.channel.send({embed: {
  color: Math.floor(Math.random() * (0xFFFFFF + 1)),
- description: (':no_entry_sign: Ya geçerli birini etiketle ya da sana sövmemi istiyosan kendini etiketle.')
+ description: ("Kime sövmeliyim")
 }});
-  if(member.id === "342268373226225666")return msg.channel.send({embed: {
+  if(member.id === "601921127706525706")return msg.channel.send({embed: {
  color: Math.floor(Math.random() * (0xFFFFFF + 1)),
- description: (':no_entry_sign: Sen Kimsin Sahibime Sövüyon Amına Kodumun Jedayı.')
+ description: (':no_entry_sign: Sen Kimsin de Sahibime Sövüyon lan')
 }})
-  if(member.id === "335413922649604096")return msg.channel.send({embed: {
+  if(member.id === "740428814341111929")return msg.channel.send({embed: {
  color: Math.floor(Math.random() * (0xFFFFFF + 1)),
- description: (`:no_entry_sign: Hoop! Birşeyler ters gitti @❅ Raksix#3362  etiketlemişsin yarram!`)
+ description: (`:no_entry_sign: Mr Pika-chan#5636 a sövemessin`)
 }})
   if(member.id === "203116573211230208")return msg.channel.send({embed: {
  color: Math.floor(Math.random() * (0xFFFFFF + 1)),
- description: (`:no_entry_sign: Hoop! Orda durucan Yapımcım @Vixen#5320'ya sövemezsin amını sikerim.`)
+ description: (`:no_entry_sign: yagizagaム#8332 ye sövdürmem lan`)
 }})
   if(member.id === client.user.id){
     msg.channel.send({embed: {

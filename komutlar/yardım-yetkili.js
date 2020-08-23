@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
   
     const juke = new Discord.RichEmbed()
     .setColor('GOLD')
-    .setAuthor(`BlackBlvee | Yetkili Komutları`, client.user.avatarURL) 
+    .setAuthor(`RTX-BOT | Yetkili Komutları`, client.user.avatarURL) 
       .setDescription('**[destek sunucum için tıkla](https://discord.gg/aedtftG)**')
 .setThumbnail(client.user.avatarURL)
       .addField('**Genel**', '`kick`, `oylama`, `reboot`, `ban`, `banlist`, `duyuru`, `çekiliş`, `isim`, `fakemesaj`, `uyarı`, `sabitle`, `partner`, `botkontrol`')

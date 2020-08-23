@@ -1,3 +1,14 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  console.log("Ne ölmesi kardeşim bayılmışım");
+  response.sendStatus(200);
+});
+app.listen(8000);
+setInterval(() => {
+  http.get(`http://trexdash.glitch.me/`);//Glitch linkinizi doğru şekilde girin!
+}, 280000)
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ayarlar = require('./ayarlar.json');
@@ -8,7 +19,7 @@ const ms = require('parse-ms')
 const Canvas = require('canvas')
 const instagram = require("user-instagram");
 const moment = require('moment');
-require('./util/eventLoader')(Client);
+require('./util/eventLoader')(client);
 
 var prefix = ayarlar.prefix;
 
@@ -269,7 +280,7 @@ client.on('message', async message => {
 
 
 
-       message.guild.owner.send("Gerekli Herşey Kuruldu Rahatına Bak! **BlackBlvee'un kıymetini bil :D**")
+       message.guild.owner.send("Gerekli Herşey Kuruldu Rahatına Bak! **HAN  Bot'un kıymetini bil :D**")
      
             })   
     
@@ -751,7 +762,7 @@ client.on("message", async message => {
   var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
 
   if (!lvl) {
-    //BlackBlvee
+    //CodEming/Ft.Yasin..
     if (xps) {
       db.set(`xp_${id}_${gid}`, xps);
     }
@@ -780,9 +791,9 @@ client.on("message", async message => {
               "` Tebrikler! :tada: **"
           );
 
-        //BlackBlvee
+        //zepo
       }
-      //BlackBlvee
+      //zepo
     }
 
     if (seviyerol) {
@@ -804,7 +815,7 @@ client.on("message", async message => {
     }
   }
 
-  //BlackBlvee
+  //ZEPST
 });
 
 client.on('message', async message => { // bot bilgi paneli üye sayısı bot sayısı falan

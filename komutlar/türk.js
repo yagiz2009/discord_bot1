@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
     .setDescription(`**NE MUTLU TÜRKÜM DİYENE!** :flag_tr:`)
     .setColor('RANDOM')
     .setImage(gifler)
-    .setFooter(`BlackBlvee`)
+    .setFooter(`MaximusBoysBOT`)
     return message.channel.send(op)
     }
   

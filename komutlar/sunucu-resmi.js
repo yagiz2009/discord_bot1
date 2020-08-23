@@ -16,7 +16,7 @@ exports.run = (client, message, params) => {
     .setTimestamp()
     .setDescription('')
         .setImage(`${message.guild.iconURL} `)
-    .setFooter(`BlackBlvee`)
+    .setFooter(`RTX-BOT`)
     return message.channel.sendEmbed(sunucubilgi);
     }
 };

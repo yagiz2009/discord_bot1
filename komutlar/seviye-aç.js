@@ -37,7 +37,7 @@ exports.run = async(client, message, args) => {
   .addField('Seviye Log Kanalı:', kontrol, true)
   .addField('Mesaj Başı Verilecek XP:', kontrol2, true)
   .addField('Seviye Rol:', kontrol3)
-  .setFooter('BlackBlvee Seviye Sistemi!')
+  .setFooter('iBOT Seviye Sistemi!')
   .setColor('RANDOM')
   message.channel.send(codeming)
  
